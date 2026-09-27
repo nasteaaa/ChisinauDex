@@ -1,0 +1,618 @@
+{
+  "app": {
+    "title": "ChisinauDex",
+    "cityHall": "Primăria Municipiului Chișinău"
+  },
+  "nav": {
+    "assistant": "Asistent",
+    "documents": "Documente",
+    "dashboard": "Administrare conținut",
+    "about": "Despre platformă",
+    "skip": "Salt la conținutul principal",
+    "profile": "Profil",
+    "main": "Navigare principală",
+    "openMenu": "Deschide meniul",
+    "closeMenu": "Închide meniul"
+  },
+  "role": {
+    "title": "Alegeți profilul",
+    "citizen": "Cetățean",
+    "citizenDesc": "Servicii, acte, informații despre adresa mea",
+    "employee": "Funcționar",
+    "employeeFull": "Funcționar municipal",
+    "employeeDesc": "Administrarea conținutului: contradicții, lacune, starea site-urilor"
+  },
+  "cat": {
+    "primaria": "Primăria",
+    "educatie": "Educație",
+    "locuinta": "Locuință și utilități",
+    "munca": "Muncă și afaceri",
+    "sanatate": "Sănătate și social",
+    "transport": "Transport",
+    "urbanism": "Urbanism"
+  },
+  "ask": {
+    "title": "Ce doriți să aflați?",
+    "domain": "Domeniu",
+    "all": "Toate",
+    "label": "Întrebarea dvs.",
+    "placeholder": "Ex.: cum înscriu copilul la grădiniță?",
+    "send": "Caută",
+    "voice": "Dictează întrebarea",
+    "voiceStop": "Oprește dictarea",
+    "suggestQuestions": "Alți cetățeni au întrebat",
+    "suggestDocs": "Documente",
+    "empQs": [
+      "Ce termen am pentru a răspunde la o petiție?",
+      "Ce acte sunt necesare pentru notificarea în comerț?",
+      "Care sunt tarifele Regiei Autosalubritate?",
+      "Unde sunt publicate achizițiile publice ale direcției?"
+    ],
+    "qs": {
+      "primaria": [
+        "Cum depun o petiție la Primărie?",
+        "Cum ajung la o audiență la primar?",
+        "Unde găsesc deciziile Consiliului Municipal?"
+      ],
+      "educatie": [
+        "Cum înscriu copilul la grădiniță?",
+        "Cum se face înscrierea în clasa I?",
+        "Unde găsesc activități extrașcolare gratuite?"
+      ],
+      "locuinta": [
+        "Care sunt tarifele pentru evacuarea deșeurilor?",
+        "Unde aflu despre deconectările de apă?",
+        "Ce fac dacă am rămas blocat în lift?"
+      ],
+      "munca": [
+        "Ce trebuie să fac ca să deschid o cafenea?",
+        "Ce granturi oferă programul Startup pentru tineri și migranți?",
+        "Unde găsesc locuri libere în piețe?"
+      ],
+      "sanatate": [
+        "Cum mă înscriu la medicul de familie?",
+        "Care este programul centrului de sănătate?",
+        "Ce ajutoare sociale oferă Primăria?"
+      ],
+      "transport": [
+        "Care este tariful la transportul public?",
+        "Unde găsesc orarul troleibuzelor?",
+        "Ce drumuri sunt în reparație?"
+      ],
+      "urbanism": [
+        "Cum obțin certificat de urbanism?",
+        "Cum obțin autorizație de construire?",
+        "Cine se ocupă de tăierea copacilor?"
+      ]
+    },
+    "allDomains": "Toate domeniile",
+    "filter": "Filtru după data publicării",
+    "periodLabel": "Acte publicate: {{from}} – {{to}}",
+    "today": "azi",
+    "lastYear": "Ultimul an",
+    "last3Years": "Ultimii 3 ani",
+    "apply": "Aplică",
+    "removeFilter": "Elimină filtrul",
+    "frequent": "Frecvente",
+    "heroTitle": "Întrebați Primăria Chișinău",
+    "heroSub": "Răspunsuri doar din documentele oficiale ale Primăriei, cu sursa fiecărei informații."
+  },
+  "answer": {
+    "live": "Răspunsul se actualizează",
+    "status": {
+      "ok": "Confirmat · răspuns din citate verificate",
+      "partial": "Parțial · o parte din informație lipsește din acte",
+      "gap": "Nu există în acte · nu formulăm un răspuns",
+      "conflict": "Contradicție · actele nu spun același lucru"
+    },
+    "gapText": "Nu am găsit în documentele oficiale informații care să răspundă la această întrebare, așa că nu inventăm un răspuns.",
+    "missing": "Ce lipsește",
+    "conflictNote": "ChisinauDex nu alege în locul dvs. Verificați la instituție care prevedere se aplică.",
+    "sources": "Surse",
+    "closest": "Cele mai apropiate pasaje",
+    "cite": "Sursa {{n}}",
+    "openDoc": "Deschide documentul",
+    "openOriginal": "Pagina originală",
+    "liveTag": "căutat live",
+    "route": "Instituția responsabilă",
+    "openContact": "Pagina de contact",
+    "listen": "Ascultă răspunsul",
+    "stopListen": "Oprește",
+    "petitionBtn": "Trimiteți întrebarea Primăriei",
+    "petitionTitle": "Mesaj către {{institution}}",
+    "petitionClose": "Închide",
+    "error": "Nu am putut obține un răspuns. Încercați din nou.",
+    "noDate": "fără dată",
+    "progress": {
+      "expand": "Reformulez întrebarea pentru căutare (AI)",
+      "search": "Caut în {{docs}} de documente ({{passages}} de pasaje)",
+      "found": "Am găsit {{passages}} pasaje relevante în {{docs}} documente",
+      "live": "Caut live pe {{sites}} site-uri oficiale",
+      "liveDone": "{{found}} rezultate noi de pe site-uri",
+      "composeAi": "Compun răspunsul doar din citate (AI)",
+      "composeFallback": "Extrag citatele exacte din documente (fără AI)",
+      "verify": "Am verificat citatele: {{kept}} păstrate, {{dropped}} eliminate",
+      "waiting": "Pornesc căutarea…"
+    },
+    "yourQuestion": "Întrebarea dvs.",
+    "similar": "Situații similare",
+    "history": "Întrebările dvs. anterioare",
+    "aiNote": "Răspuns compus automat de un sistem de inteligență artificială, doar din citatele de mai jos. Nu reprezintă consultanță juridică; verificați actele citate.",
+    "fallbackNote": "Mod fără AI: citatele sunt extrase automat din documentele oficiale și din căutarea live pe site-urile Primăriei. Nu reprezintă consultanță juridică.",
+    "act": "Actul {{l}}",
+    "excluded": "Excluse de filtrul de dată ({{n}})",
+    "relevance": "Relevanță",
+    "relevanceHint": "Cât din termenii importanți ai întrebării apar în pasajele citate. Nu este o garanție că răspunsul este complet.",
+    "likelyNewer": "Mai recent · probabil aplicabil",
+    "likelyAuthority": "Autoritate superioară · probabil aplicabil",
+    "conflictNoteNewer": "Am marcat documentul mai recent sau emis de o autoritate superioară, care de regulă se aplică. Nu decidem în locul dvs.: verificați la instituție dacă a înlocuit prevederea veche.",
+    "fewerSources": "Arată mai puține surse",
+    "allSources": "Arată toate sursele ({{n}})",
+    "excludedShort": "{{n}} documente relevante au fost excluse de filtrul de dată.",
+    "petitionDraft": "Bună ziua,\n\nNu am găsit în documentele publicate un răspuns la întrebarea: „{{q}}”.\n\nVă rog să îmi comunicați informația sau să o publicați.\n\nMulțumesc.",
+    "petitionPrivacy": "Nu includeți date personale sensibile. Veți vedea răspunsul funcționarului aici, la „Petițiile mele”.",
+    "petitionSend": "Trimite",
+    "alsoRoute": "Poate fi util și:",
+    "correctedTo": "Am corectat și am căutat:",
+    "searchExact": "Caută exact „{{q}}”",
+    "romanianOnly": "Informația există doar în documente în limba română. Citatele rămân în original, cu traducere automată."
+  },
+  "feedback": {
+    "title": "Evaluați răspunsul",
+    "stars": [
+      "",
+      "Deloc util",
+      "Puțin util",
+      "Acceptabil",
+      "Util",
+      "Foarte util"
+    ],
+    "tags": [
+      "Incomplet",
+      "Citatul nu confirmă",
+      "Greu de înțeles",
+      "Informație depășită"
+    ],
+    "send": "Trimite evaluarea",
+    "thanks": "Mulțumim. Evaluarea dvs. ({{n}}/5) a fost transmisă echipei care îngrijește actele.",
+    "starLabel": "{{n}} din 5 stele",
+    "commentLabel": "Comentariu (opțional)"
+  },
+  "address": {
+    "title": "La adresa dvs.",
+    "label": "Strada și numărul",
+    "go": "Caută",
+    "change": "Schimbă",
+    "loading": "Verific datele live…",
+    "sector": "Sectorul {{s}}",
+    "water": "Apa pe strada dvs. azi",
+    "waterNone": "Nicio deconectare sau avarie anunțată pe strada dvs.",
+    "bus": "Transport public acum",
+    "busNone": "Niciun autobuz în apropiere în acest moment.",
+    "doctor": "Medicul de familie",
+    "doctorHint": "Căutăm strada dvs. în listele de repartizare publicate de AMT",
+    "doctorNone": "Strada nu apare în listele AMT indexate.",
+    "unavailable": "Sursa nu răspunde acum",
+    "notFound": "Nu am găsit adresa. Încercați „str. Alba Iulia 75”.",
+    "stopsAway": "la {{n}} stații",
+    "locate": "Folosește locația mea",
+    "locating": "Caut adresa…",
+    "locateNote": "Poziția este trimisă o singură dată pentru a găsi strada (OpenStreetMap). Nu o păstrăm.",
+    "locateErr": {
+      "unsupported": "Browserul nu permite localizarea.",
+      "denied": "Accesul la locație a fost refuzat. Puteți scrie adresa manual.",
+      "outside": "Locația pare să fie în afara municipiului Chișinău.",
+      "notFound": "Nu am găsit o stradă la această locație."
+    },
+    "enter": "Introduceți adresa dvs.",
+    "intro": "Aflați starea apei pe strada dvs., medicul de familie și transportul din apropiere.",
+    "examples": "Exemple:",
+    "remember": "Ține minte adresa pe acest dispozitiv",
+    "askTitle": "Completăm adresa din locația dvs.?",
+    "askText": "Browserul vă va cere permisiunea. Poziția este folosită o singură dată pentru a găsi strada și nu este păstrată.",
+    "askYes": "Da, completează",
+    "askNo": "Nu, mulțumesc",
+    "filled": "Adresa a fost completată din locația dvs. Verificați numărul casei și apăsați „Caută”.",
+    "planned": "Planificat",
+    "icsTitle": "Deconectare apă: {{address}}",
+    "tanker": "Autocisternă",
+    "addCalendar": "Adaugă în calendar"
+  },
+  "docs": {
+    "title": "Documente",
+    "sub": "Toate documentele indexate de pe site-urile oficiale ale Primăriei, direcțiilor, întreprinderilor municipale și preturilor.",
+    "search": "Caută în documente",
+    "period": "Perioada publicării",
+    "periods": {
+      "any": "Oricând",
+      "week": "Ultima săptămână",
+      "month": "Ultima lună",
+      "year": "Ultimul an",
+      "custom": "Interval"
+    },
+    "from": "De la",
+    "to": "Până la",
+    "source": "Sursa",
+    "allSources": "Toate sursele",
+    "domain": "Domeniu",
+    "type": "Tip",
+    "allTypes": "Toate tipurile",
+    "types": {
+      "post": "Știre / anunț",
+      "page": "Pagină",
+      "pdf": "Document PDF",
+      "html": "Pagină web",
+      "event": "Eveniment"
+    },
+    "sort": "Ordonare",
+    "sorts": {
+      "relevance": "Relevanță",
+      "newest": "Cele mai noi",
+      "oldest": "Cele mai vechi"
+    },
+    "results": "{{count}} documente",
+    "none": "Niciun document nu corespunde filtrelor.",
+    "prev": "Pagina anterioară",
+    "next": "Pagina următoare",
+    "page": "Pagina {{p}} din {{n}}",
+    "reset": "Resetează filtrele"
+  },
+  "doc": {
+    "back": "Înapoi la documente",
+    "short": "Descriere scurtă",
+    "full": "Textul integral",
+    "files": "Descarcă fișiere",
+    "noFiles": "Documentul nu are fișiere atașate.",
+    "published": "Data publicării",
+    "updated": "Data actualizării",
+    "type": "Tip",
+    "publisher": "Publicat de",
+    "views": "Vizualizări în ChisinauDex",
+    "source": "Sursa oficială",
+    "openOnSite": "Deschide pe site-ul oficial",
+    "contact": "Contactele instituției",
+    "related": "Documente înrudite",
+    "quarantine": "Pagină pusă în carantină: {{reason}}. ChisinauDex nu o folosește în răspunsuri.",
+    "notFound": "Documentul nu există în corpus."
+  },
+  "dash": {
+    "title": "Administrare conținut",
+    "lastCrawl": "Corpus: {{c}} · verificare site-uri: {{h}}",
+    "stats": {
+      "docs": "documente indexate",
+      "sourcesUp": "site-uri accesibile din {{n}}",
+      "questions": "Întrebări",
+      "answered": "Cu răspuns din acte",
+      "positive": "Evaluări pozitive ({{n}})",
+      "latency": "timp mediu de răspuns",
+      "visits": "Vizitatori (cu acord)",
+      "quarantined": "pagini în carantină",
+      "sourcesUpShort": "site-uri accesibile"
+    },
+    "conflicts": "Contradicții între acte",
+    "conflictsEmpty": "Nu s-a detectat încă nicio contradicție. Apar aici când indexarea sau un răspuns găsește două documente care nu se potrivesc.",
+    "asks": "{{n}} întrebări afectate",
+    "origin": {
+      "index": "detectată la indexare",
+      "answer": "detectată într-un răspuns"
+    },
+    "toLegal": "Trimite juriștilor",
+    "resolve": "Marchează rezolvat",
+    "resolved": "Rezolvat",
+    "sentLegal": "Trimis Direcției juridice",
+    "gaps": "Întrebări fără răspuns în acte",
+    "gapsEmpty": "Nicio întrebare fără răspuns deocamdată.",
+    "assign": "Atribuie direcției",
+    "assigned": "Atribuit",
+    "pages": "Starea site-urilor",
+    "pagesEmpty": "Nicio problemă detectată la ultima scanare.",
+    "types": {
+      "hacked": "Pagină compromisă",
+      "down": "Site inaccesibil",
+      "tls": "Certificat HTTPS invalid",
+      "stale": "Conținut neactualizat",
+      "broken": "Link rupt",
+      "blocked": "Blochează citirea automată"
+    },
+    "notes": {
+      "hacked": "{{n}} postări spam puse în carantină: {{titles}}",
+      "down": "Nu răspunde: {{e}}",
+      "tls": "Certificatul nu corespunde domeniului; browserele afișează avertisment.",
+      "stale": "Ultimul conținut publicat: {{d}}",
+      "broken": "Eroare {{s}}, link găsit pe {{on}}",
+      "blocked": "Site-ul se deschide pentru oameni, dar programelor automate le arată o verificare anti-bot, deci ChisinauDex nu îl poate indexa. Cereți echipei IT a instituției să permită crawlerul ChisinauDex."
+    },
+    "actions": {
+      "hacked": "Scoate paginile offline",
+      "down": "Anunță IT",
+      "tls": "Anunță IT",
+      "stale": "Trimite spre actualizare",
+      "broken": "Marchează reparat",
+      "blocked": "Cere IT acces pentru crawler"
+    },
+    "done": {
+      "offline": "Offline · IT notificat",
+      "sent": "Trimis",
+      "fixed": "Reparat"
+    },
+    "faq": "Cele mai frecvente întrebări",
+    "faqEmpty": "Încă nu s-au pus întrebări.",
+    "error": "Panoul nu a putut fi încărcat.",
+    "internalTitle": "Asistent intern",
+    "internalSub": "Descrieți situația apărută; vă arătăm instituția responsabilă și contactul ei, pe baza documentelor oficiale.",
+    "internalPlaceholder": "Ex.: un cetățean întreabă cine repară liftul din blocul său",
+    "pickDomain": "Alegeți domeniul",
+    "internalNoMatch": "Niciun document nu se potrivește suficient. Alegeți domeniul potrivit.",
+    "basedOn": "Pe baza documentului „{{title}}”",
+    "segConf": "Contradicții",
+    "segGaps": "Fără răspuns",
+    "segPages": "Pagini",
+    "segDocs": "Documente",
+    "segFaq": "Frecvente",
+    "dept": "Instituția",
+    "allDepts": "Toate instituțiile",
+    "emptyDept": "Nimic pentru această instituție.",
+    "responsible": "Responsabil",
+    "lastAsked": "ultima întrebare {{d}}",
+    "requests": "{{n}} cereri",
+    "docsNote": "după instituție, cele mai recente primele",
+    "allTime": "toate întrebările",
+    "statsTitle": "Statistici",
+    "last7": "ultimele 7 zile",
+    "noChange": "fără date în săptămâna trecută",
+    "vsLastWeek": "față de săpt. trecută",
+    "logTitle": "Jurnal de activitate",
+    "logNote": "ultimele acțiuni",
+    "logEmpty": "Nicio acțiune încă.",
+    "log": {
+      "conflict": "a marcat o contradicție: {{state}}",
+      "gap": "a marcat o întrebare fără răspuns: {{state}}",
+      "page": "a marcat o pagină: {{state}}"
+    },
+    "logState": {
+      "legal": "trimisă juriștilor",
+      "resolved": "rezolvată",
+      "assigned": "atribuită",
+      "offline": "scoasă offline",
+      "sent": "trimisă spre actualizare",
+      "fixed": "reparată",
+      "open": "redeschisă"
+    },
+    "segServices": "Servicii",
+    "servicesTitle": "Servicii cu informații nepublicate",
+    "servicesNote": "din {{n}} servicii indexate",
+    "servicesEmpty": "Toate serviciile indexate au termen, taxă și acte publicate.",
+    "servicesMissing": "Lipsește",
+    "segPetitions": "Petiții",
+    "petitionsTitle": "Petiții de la cetățeni",
+    "petitionsEmpty": "Nicio petiție primită.",
+    "petitionStatus": {
+      "new": "Nouă",
+      "in_progress": "În lucru",
+      "answered": "Răspuns trimis"
+    },
+    "replyLabel": "Răspunsul pentru cetățean",
+    "sendReply": "Trimite răspunsul",
+    "takePetition": "Preia în lucru",
+    "answerPetition": "Răspunde",
+    "segRatings": "Evaluări",
+    "ratingsTitle": "Evaluările răspunsurilor",
+    "ratingsNote": "cele mai recente; ★★ sau mai puțin = de verificat",
+    "ratingsEmpty": "Nicio evaluare încă."
+  },
+  "about": {
+    "title": "Despre ChisinauDex",
+    "lead": "ChisinauDex este asistentul documentar al Primăriei Chișinău. Nu scrie răspunsuri din memorie: caută în documentele publice, extrage pasajele relevante și le citează exact.",
+    "howH": "Cum se formează un răspuns",
+    "how": [
+      [
+        "Colectare",
+        "Un robot citește zilnic cele 41 de site-uri oficiale din lista Primăriei: știri, pagini, regulamente PDF."
+      ],
+      [
+        "Verificare surse",
+        "Fiecare pagină primește un scor de autoritate, dată și integritate. Paginile spam sau compromise sunt puse în carantină."
+      ],
+      [
+        "Căutare",
+        "Fiecare fragment are un vector (model multilingv). Întrebarea e căutată după sens, în pgvector, și după cuvinte cheie; cele 5 fragmente cele mai relevante merg la model. O întrebare în rusă găsește și actele în română."
+      ],
+      [
+        "Compunere",
+        "Modelul AI are voie doar să aleagă și să lege citate. Fiecare propoziție trebuie să aibă un citat exact."
+      ],
+      [
+        "Validare",
+        "Fiecare citat este comparat cu textul sursei. Propozițiile fără citat verificat sunt eliminate."
+      ],
+      [
+        "Rezervă",
+        "Dacă AI-ul nu e disponibil, ChisinauDex extrage direct propozițiile relevante și caută live pe site-urile oficiale."
+      ]
+    ],
+    "statusH": "Ce înseamnă stările răspunsului",
+    "sourcesH": "Sursele oficiale",
+    "sourcesSub": "Starea la ultima verificare automată.",
+    "colSource": "Sursa",
+    "colDomain": "Domeniu",
+    "colDocs": "Documente",
+    "colStatus": "Stare",
+    "up": "Accesibil",
+    "down": "Inaccesibil",
+    "tlsBad": "HTTPS invalid",
+    "spam": "{{n}} în carantină",
+    "rolesH": "Pentru cine este",
+    "roles": "Locuitorii pun întrebări, primesc informații pentru adresa lor și trimit petiții. Funcționarii municipali văd în plus administrarea conținutului: contradicții între acte, întrebări fără răspuns, pagini cu probleme și petițiile locuitorilor.",
+    "a11yH": "Accesibilitate",
+    "a11y": "Platforma urmărește WCAG 2.2 nivel AA: navigare completă din tastatură, focus vizibil, contrast suficient, text redimensionabil până la 150%, moduri pentru daltonism și vedere slabă, citire cu voce a răspunsurilor. Deschideți meniul „Accesibilitate” din antet.",
+    "langH": "Limbi",
+    "lang": "Interfața și răspunsurile sunt disponibile în română, rusă și engleză. Citatele rămân în limba originală a documentului; în modul AI alături apare o traducere.",
+    "blocked": "Accesibil · blochează citirea automată"
+  },
+  "privacy": {
+    "title": "Politica de confidențialitate și cookie-uri",
+    "updated": "Ultima actualizare: 26 septembrie 2026",
+    "sections": [
+      [
+        "Ce date prelucrăm",
+        "Întrebările pe care le puneți, starea răspunsului și evaluările (stele, etichete, comentariu). Nu cerem nume, e-mail sau cont."
+      ],
+      [
+        "Adresa dvs.",
+        "Adresa introdusă rămâne în acest browser. Pentru a afla sectorul și coordonatele o trimitem serviciului OpenStreetMap Nominatim; datele live vin de la Apă-Canal și Parcul Urban de Autobuze."
+      ],
+      [
+        "Localizare",
+        "Vă întrebăm o singură dată dacă doriți să completăm adresa din locația dvs.; doar dacă răspundeți „Da” (sau apăsați „Folosește locația mea”), browserul vă cere permisiunea. Dacă ați permis deja locația pentru acest site, câmpul se completează automat la deschiderea paginii. Coordonatele sunt trimise o singură dată serverului ChisinauDex și serviciului OpenStreetMap Nominatim pentru a afla strada, nu sunt salvate și nu apar în jurnalele serverului. Adresa rămâne doar în browserul dvs. și este păstrată pe dispozitiv numai dacă bifați „Ține minte adresa”. Temeiul: consimțământul dvs. explicit (art. 6 alin. 1 lit. a GDPR); îl puteți retrage din setările browserului."
+      ],
+      [
+        "Inteligența artificială",
+        "Când modul AI este activ, întrebarea și pasajele găsite sunt trimise furnizorului modelului (xAI Grok sau Groq) pentru a compune răspunsul. Nu trimitem date de identificare. Fără cheie AI, totul rulează pe serverul ChisinauDex."
+      ],
+      [
+        "Cookie-uri și stocare locală",
+        "Necesare: preferințele de limbă, profil, accesibilitate și acordul pentru cookie-uri, în stocarea locală a browserului. Analitice (doar cu acord): un identificator aleator de sesiune și pagina vizitată, stocate pe serverul ChisinauDex. Nu folosim cookie-uri de terță parte pentru publicitate sau urmărire."
+      ],
+      [
+        "Fonturi",
+        "Fonturile sunt încărcate de la Google Fonts, care primește adresa IP a browserului."
+      ],
+      [
+        "Drepturile dvs.",
+        "Puteți retrage oricând acordul pentru analitice din „Setări cookie-uri” din subsolul paginii și puteți șterge datele locale din setările browserului."
+      ]
+    ]
+  },
+  "cookie": {
+    "title": "Cookie-uri pe acest site",
+    "text": "Folosim stocare locală necesară pentru funcționare și, doar cu acordul dvs., statistici anonime de utilizare pentru a îmbunătăți răspunsurile.",
+    "accept": "Accept toate",
+    "reject": "Doar necesare",
+    "settings": "Setări",
+    "save": "Salvează alegerea",
+    "necessary": "Necesare",
+    "necessaryDesc": "Limba, profilul, accesibilitatea și această alegere. Mereu active.",
+    "analytics": "Statistici de utilizare",
+    "analyticsDesc": "Pagini vizitate și un identificator aleator de sesiune, stocate pe serverul ChisinauDex.",
+    "policy": "Politica de confidențialitate"
+  },
+  "a11y": {
+    "title": "Accesibilitate",
+    "size": "Mărimea textului",
+    "contrast": "Contrast ridicat",
+    "cb": "Culori pentru daltonism",
+    "cbNone": "Standard",
+    "cbSafe": "Paletă sigură",
+    "cbMono": "Alb-negru",
+    "font": "Font ușor de citit",
+    "spacing": "Spațiere mărită",
+    "links": "Subliniază linkurile",
+    "reset": "Resetează setările",
+    "close": "Închide setările de accesibilitate",
+    "open": "Setări de accesibilitate",
+    "contrastDesc": "Text negru pe fundal alb, contururi clare",
+    "fontDesc": "Font Atkinson Hyperlegible, ușor de citit",
+    "spacingDesc": "Mai mult spațiu între rânduri",
+    "linksDesc": "Toate linkurile sunt subliniate"
+  },
+  "footer": {
+    "text": "Date reale de pe site-urile oficiale din Anexa 1 · răspunsurile nu au valoare juridică; textul actului original prevalează.",
+    "privacy": "Confidențialitate",
+    "cookies": "Setări cookie-uri",
+    "about": "Despre ChisinauDex",
+    "services": "Servicii",
+    "info": "Informații",
+    "a11y": "Declarație de accesibilitate",
+    "rate": "Evaluați serviciul",
+    "rateThanks": "Mulțumim pentru evaluare.",
+    "pick": "Alegeți o notă",
+    "comment": "Comentariu (opțional)"
+  },
+  "common": {
+    "loading": "Se încarcă…",
+    "error": "A apărut o eroare."
+  },
+  "notFound": "Pagina nu a fost găsită",
+  "backHome": "Înapoi la pagina principală",
+  "district": {
+    "centru": "Centru",
+    "botanica": "Botanica",
+    "buiucani": "Buiucani",
+    "ciocana": "Ciocana",
+    "riscani": "Rîșcani"
+  },
+  "statement": {
+    "title": "Declarație de accesibilitate",
+    "intro": "Primăria municipiului Chișinău se angajează să facă serviciul ChisinauDex accesibil tuturor, în conformitate cu standardul european EN 301 549 și cu WCAG 2.2, nivelul AA.",
+    "sections": [
+      [
+        "Stadiul conformității",
+        "Serviciul ChisinauDex este parțial conform cu WCAG 2.2, nivelul AA, din cauza excepțiilor enumerate mai jos."
+      ],
+      [
+        "Conținut care nu este pe deplin accesibil",
+        "Documentele originale de pe site-urile instituțiilor (în special PDF-urile scanate) pot să nu fie accesibile; ChisinauDex afișează textul lor extras, acolo unde există.\nCitatele rămân în limba originală a documentului (de regulă româna)."
+      ],
+      [
+        "Inteligența artificială",
+        "Răspunsurile pot fi compuse automat de un sistem de inteligență artificială, care are voie doar să aleagă și să lege citate exacte din documentele oficiale. Răspunsurile nu reprezintă consultanță juridică."
+      ],
+      [
+        "Pregătirea declarației",
+        "Declarația a fost întocmită la 26.09.2026. Măsurile implementate: navigare completă din tastatură, focalizare vizibilă, contrast conform paletei, mesaje de stare pentru cititoare de ecran, text redimensionabil până la 150%, moduri pentru daltonism și vedere slabă. Un audit formal (testare automată și cu cititor de ecran) este planificat."
+      ],
+      [
+        "Feedback și contact",
+        "Dacă întâmpinați dificultăți în folosirea serviciului, folosiți formularul de mai jos sau Ghișeul Unic al Primăriei (bd. Ștefan cel Mare și Sfânt 83, Chișinău). Vă răspundem în cel mult 30 de zile."
+      ],
+      [
+        "Procedura de contestare",
+        "Dacă răspunsul nostru nu vă satisface, puteți depune o petiție conform Codului administrativ."
+      ]
+    ],
+    "formLabel": "Descrieți problema de accesibilitate",
+    "formDone": "Mulțumim. Mesajul dvs. a fost înregistrat și va primi răspuns în cel mult 30 de zile."
+  },
+  "emp": {
+    "heroTitle": "Asistentul funcționarului",
+    "heroSub": "Răspundeți cetățenilor din documentele oficiale ale Primăriei, cu citate exacte. Aflați ce instituție este responsabilă și ce trebuie actualizat pe site-uri.",
+    "title": "Ghișeu",
+    "intro": "Pentru întrebările primite la ghișeu, la telefon sau prin petiții.",
+    "todo": "De rezolvat în conținut",
+    "openDashboard": "Deschide administrarea conținutului"
+  },
+  "services": {
+    "title": "Servicii",
+    "sub": "Termenul legal, taxa și actele necesare pentru serviciile Primăriei, copiate exact de pe paginile oficiale ale instituțiilor. Știți dinainte cât costă și cât durează, fără intermediari.",
+    "search": "Căutați un serviciu (ex.: certificat, teren, publicitate)",
+    "count": "{{n}} servicii",
+    "term": "Termen legal",
+    "fee": "Taxă",
+    "documents": "Acte necesare",
+    "notPublished": "Nepublicat de instituție",
+    "missingNote": "Unele informații nu sunt publicate de instituție. Sunt semnalate funcționarilor Primăriei în administrarea conținutului.",
+    "officialPage": "Pagina oficială",
+    "cardTitle": "Fișa serviciului",
+    "footnote": "Momentan sunt disponibile serviciile publicate structurat de Direcția Generală Arhitectură, Urbanism și Relații Funciare. Alte instituții nu publică încă termenul și taxa pentru serviciile lor.",
+    "field": {
+      "term": "termen",
+      "fee": "taxă",
+      "documents": "acte necesare"
+    },
+    "all": "Toate serviciile"
+  },
+  "petitions": {
+    "title": "Petițiile mele",
+    "sentOn": "trimisă {{d}}",
+    "daysLeft": "{{n}} zile rămase din termenul legal de {{total}} de zile",
+    "overdue": "Termenul legal a expirat acum {{n}} zile",
+    "overdueHelp": "Instituția nu a răspuns în termen. Puteți reveni cu o cerere de informare sau contesta tăcerea administrativă.",
+    "sentTo": "Trimisă cu nr. {{ticket}} către {{institution}}. Răspunsul va apărea la „Petițiile mele”.",
+    "statusAnswered": "Răspuns primit",
+    "statusInProgress": "În lucru la funcționar",
+    "forget": "Șterge din listă"
+  },
+  "home": {
+    "secondary": "Informații pentru adresa dvs."
+  }
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "6d3f847e2f94",
+    "topic": "Granturi startup pentru tineri",
+    "a": {
+      "docId": "73e031fe32da",
+      "quote": "Tinerii antreprenori pot solicita granturi de până la 200 de mii de lei",
+      "value": "200.000 lei"
+    },
+    "b": {
+      "docId": "02126d200356",
+      "quote": "Grantul poate acoperi până la 70% din valoarea proiectului, până la maximum 250.000 de lei",
+      "value": "250.000 lei"
+    },
+    "detectedAt": "2026-09-27T04:51:07.676Z",
+    "origin": "index"
+  },
+  {
+    "id": "7eab7e1b19ca",
+    "topic": "Granturi startup pentru tineri",
+    "a": {
+      "docId": "73e031fe32da",
+      "quote": "Tinerii antreprenori pot solicita granturi de până la 200 de mii de lei",
+      "value": "200.000 lei"
+    },
+    "b": {
+      "docId": "335ea2e530b3",
+      "quote": "Programul „Startup pentru Tineri și Migranţi” – granturi de până la 250.000 lei pentru lansarea și dezvoltarea afacerilor.",
+      "value": "250.000 lei"
+    },
+    "detectedAt": "2026-09-27T04:51:07.676Z",
+    "origin": "index"
+  }
+]

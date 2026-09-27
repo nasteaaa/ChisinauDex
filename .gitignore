@@ -1,0 +1,12 @@
+node_modules
+dist
+coverage
+*.log
+.DS_Store
+
+# Secrets — only commit .env.example
+.env
+.env.*
+!.env.example
+
+.vercel

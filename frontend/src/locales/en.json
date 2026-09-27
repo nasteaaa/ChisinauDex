@@ -1,0 +1,618 @@
+{
+  "app": {
+    "title": "ChisinauDex",
+    "cityHall": "Chișinău City Hall"
+  },
+  "nav": {
+    "assistant": "Assistant",
+    "documents": "Documents",
+    "dashboard": "Content management",
+    "about": "About the platform",
+    "skip": "Skip to main content",
+    "profile": "Profile",
+    "main": "Main navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "role": {
+    "title": "Choose a profile",
+    "citizen": "Citizen",
+    "citizenDesc": "Services, documents, information for my address",
+    "employee": "Employee",
+    "employeeFull": "Municipal employee",
+    "employeeDesc": "Content management: contradictions, gaps, site health"
+  },
+  "cat": {
+    "primaria": "City Hall",
+    "educatie": "Education",
+    "locuinta": "Housing and utilities",
+    "munca": "Work and business",
+    "sanatate": "Health and social",
+    "transport": "Transport",
+    "urbanism": "Urban planning"
+  },
+  "ask": {
+    "title": "What would you like to know?",
+    "domain": "Domain",
+    "all": "All",
+    "label": "Your question",
+    "placeholder": "E.g.: how do I enrol my child in kindergarten?",
+    "send": "Search",
+    "voice": "Dictate your question",
+    "voiceStop": "Stop dictating",
+    "suggestQuestions": "Other citizens have asked",
+    "suggestDocs": "Documents",
+    "empQs": [
+      "What is the deadline for responding to a petition?",
+      "What documents are required for a commerce notification?",
+      "What are the rates of the Autosalubritate utility?",
+      "Where are the department's public procurements published?"
+    ],
+    "qs": {
+      "primaria": [
+        "How do I file a petition with City Hall?",
+        "How do I get an audience with the mayor?",
+        "Where can I find the Municipal Council's decisions?"
+      ],
+      "educatie": [
+        "How do I enroll my child in kindergarten?",
+        "How does enrollment in 1st grade work?",
+        "Where can I find free extracurricular activities?"
+      ],
+      "locuinta": [
+        "What are the waste collection rates?",
+        "Where can I find out about water outages?",
+        "What do I do if I'm stuck in an elevator?"
+      ],
+      "munca": [
+        "What do I need to do to open a café?",
+        "What grants does the Startup program for youth and migrants offer?",
+        "Where can I find vacant spots in markets?"
+      ],
+      "sanatate": [
+        "How do I register with a family doctor?",
+        "What are the health center's opening hours?",
+        "What social assistance does City Hall offer?"
+      ],
+      "transport": [
+        "What is the public transport fare?",
+        "Where can I find the trolleybus schedule?",
+        "Which roads are under repair?"
+      ],
+      "urbanism": [
+        "How do I get an urban planning certificate?",
+        "How do I get a building permit?",
+        "Who handles tree felling?"
+      ]
+    },
+    "allDomains": "All domains",
+    "filter": "Filter by publication date",
+    "periodLabel": "Acts published: {{from}} – {{to}}",
+    "today": "today",
+    "lastYear": "Last year",
+    "last3Years": "Last 3 years",
+    "apply": "Apply",
+    "removeFilter": "Remove filter",
+    "frequent": "Frequent",
+    "heroTitle": "Ask Chișinău City Hall",
+    "heroSub": "Answers only from City Hall's official documents, with the source of every piece of information."
+  },
+  "answer": {
+    "live": "The answer is updating",
+    "status": {
+      "ok": "Confirmed · answer from verified citations",
+      "partial": "Partial · some information is missing from the documents",
+      "gap": "Not found in the documents · no answer is given",
+      "conflict": "Conflict · the documents don't agree"
+    },
+    "gapText": "We did not find information in the official documents that answers this question, so we do not make up an answer.",
+    "missing": "What's missing",
+    "conflictNote": "ChisinauDex does not choose for you. Check with the institution which provision applies.",
+    "sources": "Sources",
+    "closest": "Closest passages",
+    "cite": "Source {{n}}",
+    "openDoc": "Open the document",
+    "openOriginal": "Original page",
+    "liveTag": "found live",
+    "route": "Responsible institution",
+    "openContact": "Contact page",
+    "listen": "Listen to the answer",
+    "stopListen": "Stop",
+    "petitionBtn": "Send the question to City Hall",
+    "petitionTitle": "Message to {{institution}}",
+    "petitionClose": "Close",
+    "error": "We could not get an answer. Please try again.",
+    "noDate": "no date",
+    "progress": {
+      "expand": "Rewriting the question for search (AI)",
+      "search": "Searching {{docs}} documents ({{passages}} passages)",
+      "found": "Found {{passages}} relevant passages in {{docs}} documents",
+      "live": "Searching {{sites}} official sites live",
+      "liveDone": "{{found}} new results from the sites",
+      "composeAi": "Composing the answer from quotes only (AI)",
+      "composeFallback": "Extracting exact quotes from documents (no AI)",
+      "verify": "Quotes verified: {{kept}} kept, {{dropped}} removed",
+      "waiting": "Starting the search…"
+    },
+    "yourQuestion": "Your question",
+    "similar": "Similar situations",
+    "history": "Your previous questions",
+    "aiNote": "Answer composed automatically by an artificial intelligence system, only from the quotes below. It is not legal advice; check the cited acts.",
+    "fallbackNote": "No-AI mode: quotes are extracted automatically from the official documents and a live search of City Hall sites. It is not legal advice.",
+    "act": "Act {{l}}",
+    "excluded": "Excluded by the date filter ({{n}})",
+    "relevance": "Relevance",
+    "relevanceHint": "How much of the question's important terms appear in the cited passages. It does not guarantee the answer is complete.",
+    "likelyNewer": "Newer · likely applies",
+    "likelyAuthority": "Higher authority · likely applies",
+    "conflictNoteNewer": "We marked the newer document, or the one issued by a higher authority, which usually applies. We don't decide for you: check with the institution whether it replaced the old rule.",
+    "fewerSources": "Show fewer sources",
+    "allSources": "Show all sources ({{n}})",
+    "excludedShort": "{{n}} relevant documents were left out by the date filter.",
+    "petitionDraft": "Hello,\n\nI could not find an answer to this question in the published documents: \"{{q}}\".\n\nPlease send me the information or publish it.\n\nThank you.",
+    "petitionPrivacy": "Do not include sensitive personal data. You will see the official's reply here, under \"My petitions\".",
+    "petitionSend": "Send",
+    "alsoRoute": "Also relevant:",
+    "correctedTo": "Showing results for",
+    "searchExact": "Search instead for \"{{q}}\"",
+    "romanianOnly": "This information exists only in Romanian documents. Quotes are shown in the original, with an automatic translation."
+  },
+  "feedback": {
+    "title": "Rate the answer",
+    "stars": [
+      "",
+      "Not helpful at all",
+      "A little helpful",
+      "Acceptable",
+      "Helpful",
+      "Very helpful"
+    ],
+    "tags": [
+      "Incomplete",
+      "The citation doesn't confirm this",
+      "Hard to understand",
+      "Outdated information"
+    ],
+    "send": "Submit rating",
+    "thanks": "Thank you. Your rating ({{n}}/5) has been sent to the team that maintains the documents.",
+    "starLabel": "{{n}} out of 5 stars",
+    "commentLabel": "Comment (optional)"
+  },
+  "address": {
+    "title": "At your address",
+    "label": "Street and number",
+    "go": "Search",
+    "change": "Change",
+    "loading": "Checking live data…",
+    "sector": "Sector {{s}}",
+    "water": "Water on your street today",
+    "waterNone": "No outages or disruptions reported on your street.",
+    "bus": "Public transport now",
+    "busNone": "No bus nearby right now.",
+    "doctor": "Family doctor",
+    "doctorHint": "We're looking up your street in the assignment lists published by AMT",
+    "doctorNone": "The street does not appear in the indexed AMT lists.",
+    "unavailable": "The source is not responding right now",
+    "notFound": "We couldn't find the address. Try \"str. Alba Iulia 75\".",
+    "stopsAway": "{{n}} stops away",
+    "locate": "Use my location",
+    "locating": "Finding your address…",
+    "locateNote": "Your position is sent once to find the street (OpenStreetMap). We do not keep it.",
+    "locateErr": {
+      "unsupported": "This browser does not support location.",
+      "denied": "Location access was denied. You can type the address instead.",
+      "outside": "The location seems to be outside Chișinău municipality.",
+      "notFound": "No street found at this location."
+    },
+    "enter": "Enter your address",
+    "intro": "See water status on your street, your family doctor and nearby transport.",
+    "examples": "Examples:",
+    "remember": "Remember the address on this device",
+    "askTitle": "Fill in the address from your location?",
+    "askText": "Your browser will ask for permission. The position is used once to find the street and is not kept.",
+    "askYes": "Yes, fill it in",
+    "askNo": "No, thanks",
+    "filled": "The address was filled in from your location. Check the house number and press \"Search\".",
+    "planned": "Planned",
+    "icsTitle": "Water outage: {{address}}",
+    "tanker": "Water tanker",
+    "addCalendar": "Add to calendar"
+  },
+  "docs": {
+    "title": "Documents",
+    "sub": "All documents indexed from the official websites of City Hall, its directorates, municipal enterprises and sector praetorships.",
+    "search": "Search the documents",
+    "period": "Publication period",
+    "periods": {
+      "any": "Any time",
+      "week": "Last week",
+      "month": "Last month",
+      "year": "Last year",
+      "custom": "Custom range"
+    },
+    "from": "From",
+    "to": "To",
+    "source": "Source",
+    "allSources": "All sources",
+    "domain": "Domain",
+    "type": "Type",
+    "allTypes": "All types",
+    "types": {
+      "post": "News / announcement",
+      "page": "Page",
+      "pdf": "PDF document",
+      "html": "Web page",
+      "event": "Event"
+    },
+    "sort": "Sort",
+    "sorts": {
+      "relevance": "Relevance",
+      "newest": "Newest",
+      "oldest": "Oldest"
+    },
+    "results": "{{count}} documents",
+    "none": "No document matches the filters.",
+    "prev": "Previous page",
+    "next": "Next page",
+    "page": "Page {{p}} of {{n}}",
+    "reset": "Reset filters"
+  },
+  "doc": {
+    "back": "Back to documents",
+    "short": "Short description",
+    "full": "Full text",
+    "files": "Download files",
+    "noFiles": "The document has no attached files.",
+    "published": "Publication date",
+    "updated": "Last updated",
+    "type": "Type",
+    "publisher": "Published by",
+    "views": "Views on ChisinauDex",
+    "source": "Official source",
+    "openOnSite": "Open on the official website",
+    "contact": "Institution contacts",
+    "related": "Related documents",
+    "quarantine": "Page put in quarantine: {{reason}}. ChisinauDex does not use it in answers.",
+    "notFound": "The document does not exist in the corpus."
+  },
+  "dash": {
+    "title": "Content management",
+    "lastCrawl": "Corpus: {{c}} · website check: {{h}}",
+    "stats": {
+      "docs": "indexed documents",
+      "sourcesUp": "reachable websites out of {{n}}",
+      "questions": "Questions",
+      "answered": "Answered from acts",
+      "positive": "Positive ratings ({{n}})",
+      "latency": "average response time",
+      "visits": "Visitors (with consent)",
+      "quarantined": "quarantined pages",
+      "sourcesUpShort": "sites reachable"
+    },
+    "conflicts": "Conflicts between documents",
+    "conflictsEmpty": "No contradictions detected yet. They appear here when indexing or an answer finds two documents that disagree.",
+    "asks": "{{n}} questions affected",
+    "origin": {
+      "index": "detected during indexing",
+      "answer": "detected in an answer"
+    },
+    "toLegal": "Send to legal department",
+    "resolve": "Mark resolved",
+    "resolved": "Resolved",
+    "sentLegal": "Sent to the Legal Department",
+    "gaps": "Questions unanswered in the documents",
+    "gapsEmpty": "No unanswered questions so far.",
+    "assign": "Assign to department",
+    "assigned": "Assigned",
+    "pages": "Website status",
+    "pagesEmpty": "No issues detected in the latest scan.",
+    "types": {
+      "hacked": "Compromised page",
+      "down": "Website unreachable",
+      "tls": "Invalid HTTPS certificate",
+      "stale": "Outdated content",
+      "broken": "Broken link",
+      "blocked": "Blocks automated reading"
+    },
+    "notes": {
+      "hacked": "{{n}} spam posts put in quarantine: {{titles}}",
+      "down": "Not responding: {{e}}",
+      "tls": "The certificate does not match the domain; browsers show a warning.",
+      "stale": "Last published content: {{d}}",
+      "broken": "Error {{s}}, link found on {{on}}",
+      "blocked": "The site opens for people, but shows automated readers an anti-bot check, so ChisinauDex cannot index it. Ask the institution's IT team to allow the ChisinauDex crawler."
+    },
+    "actions": {
+      "hacked": "Take pages offline",
+      "down": "Notify IT",
+      "tls": "Notify IT",
+      "stale": "Send for update",
+      "broken": "Mark fixed",
+      "blocked": "Ask IT to allow the crawler"
+    },
+    "done": {
+      "offline": "Offline · IT notified",
+      "sent": "Sent",
+      "fixed": "Fixed"
+    },
+    "faq": "Most frequent questions",
+    "faqEmpty": "No questions asked yet.",
+    "error": "The dashboard could not be loaded.",
+    "internalTitle": "Internal assistant",
+    "internalSub": "Describe the situation; we show the responsible institution and its contact, based on the official documents.",
+    "internalPlaceholder": "E.g.: a resident asks who repairs the lift in their building",
+    "pickDomain": "Choose a domain",
+    "internalNoMatch": "No document matches well enough. Choose the right domain.",
+    "basedOn": "Based on the document \"{{title}}\"",
+    "segConf": "Contradictions",
+    "segGaps": "Unanswered",
+    "segPages": "Pages",
+    "segDocs": "Documents",
+    "segFaq": "Frequent",
+    "dept": "Institution",
+    "allDepts": "All institutions",
+    "emptyDept": "Nothing for this institution.",
+    "responsible": "Responsible",
+    "lastAsked": "last asked {{d}}",
+    "requests": "{{n}} requests",
+    "docsNote": "by institution, most recent first",
+    "allTime": "all questions",
+    "statsTitle": "Statistics",
+    "last7": "last 7 days",
+    "noChange": "no data for last week",
+    "vsLastWeek": "vs last week",
+    "logTitle": "Activity log",
+    "logNote": "latest actions",
+    "logEmpty": "No actions yet.",
+    "log": {
+      "conflict": "marked a contradiction: {{state}}",
+      "gap": "marked an unanswered question: {{state}}",
+      "page": "marked a page: {{state}}"
+    },
+    "logState": {
+      "legal": "sent to legal",
+      "resolved": "resolved",
+      "assigned": "assigned",
+      "offline": "taken offline",
+      "sent": "sent for update",
+      "fixed": "fixed",
+      "open": "reopened"
+    },
+    "segServices": "Services",
+    "servicesTitle": "Services with unpublished information",
+    "servicesNote": "of {{n}} indexed services",
+    "servicesEmpty": "All indexed services publish a deadline, fee and documents.",
+    "servicesMissing": "Missing",
+    "segPetitions": "Petitions",
+    "petitionsTitle": "Petitions from residents",
+    "petitionsEmpty": "No petitions yet.",
+    "petitionStatus": {
+      "new": "New",
+      "in_progress": "In progress",
+      "answered": "Reply sent"
+    },
+    "replyLabel": "Reply to the resident",
+    "sendReply": "Send reply",
+    "takePetition": "Take it",
+    "answerPetition": "Reply",
+    "segRatings": "Ratings",
+    "ratingsTitle": "Answer ratings",
+    "ratingsNote": "most recent; ★★ or less = needs checking",
+    "ratingsEmpty": "No ratings yet."
+  },
+  "about": {
+    "title": "About ChisinauDex",
+    "lead": "ChisinauDex is Chișinău City Hall's document assistant. It does not write answers from memory: it searches public documents, extracts the relevant passages, and quotes them exactly.",
+    "howH": "How an answer is formed",
+    "how": [
+      [
+        "Collection",
+        "A crawler reads the 41 official websites on City Hall's list daily: news, pages, PDF regulations."
+      ],
+      [
+        "Source verification",
+        "Each page receives a score for authority, date, and integrity. Spam or compromised pages are put in quarantine."
+      ],
+      [
+        "Search",
+        "Every chunk has a vector (multilingual model). The question is searched by meaning in pgvector and by keywords; the 5 most relevant chunks go to the model. A question in Russian also finds Romanian documents."
+      ],
+      [
+        "Composition",
+        "The AI model is only allowed to select and link citations. Every sentence must have an exact citation."
+      ],
+      [
+        "Validation",
+        "Every citation is checked against the source text. Sentences without a verified citation are removed."
+      ],
+      [
+        "Fallback",
+        "If the AI is unavailable, ChisinauDex extracts the relevant sentences directly and searches live on the official websites."
+      ]
+    ],
+    "statusH": "What the answer statuses mean",
+    "sourcesH": "Official sources",
+    "sourcesSub": "Status as of the latest automatic check.",
+    "colSource": "Source",
+    "colDomain": "Domain",
+    "colDocs": "Documents",
+    "colStatus": "Status",
+    "up": "Reachable",
+    "down": "Unreachable",
+    "tlsBad": "Invalid HTTPS",
+    "spam": "{{n}} quarantined",
+    "rolesH": "Who this is for",
+    "roles": "Residents ask questions, get information for their address and send petitions. Municipal employees also see content management: contradictions between documents, unanswered questions, broken pages and residents' petitions.",
+    "a11yH": "Accessibility",
+    "a11y": "The platform follows WCAG 2.2 level AA: full keyboard navigation, visible focus, sufficient contrast, resizable text up to 150%, modes for color blindness and low vision, text-to-speech for answers. Open the \"Accessibility\" menu in the header.",
+    "langH": "Languages",
+    "lang": "The interface and answers are available in Romanian, Russian and English. Quotes stay in the document's original language; in AI mode a translation is shown alongside.",
+    "blocked": "Reachable · blocks automated reading"
+  },
+  "privacy": {
+    "title": "Privacy and cookie policy",
+    "updated": "Last updated: September 26, 2026",
+    "sections": [
+      [
+        "What data we process",
+        "The questions you ask, the answer status, and ratings (stars, tags, comment). We do not ask for a name, email, or account."
+      ],
+      [
+        "Your address",
+        "The address you enter stays in this browser. To find the sector and coordinates, we send it to the OpenStreetMap Nominatim service; live data comes from Apă-Canal Chișinău and the Urban Bus Park."
+      ],
+      [
+        "Location",
+        "We ask once whether to fill in your address from your location; only if you answer \"Yes\" (or press \"Use my location\") does your browser ask for permission. If you have already allowed location for this site, the field fills in automatically when the page opens. The coordinates are sent once to the ChisinauDex server and to OpenStreetMap Nominatim to find the street; they are not saved and do not appear in server logs. The address stays in your browser and is kept on the device only if you tick \"Remember the address\". Legal basis: your explicit consent (GDPR Art. 6(1)(a)); you can withdraw it in your browser settings."
+      ],
+      [
+        "Artificial intelligence",
+        "When AI mode is on, the question and the passages found are sent to the model provider (xAI Grok or Groq) to compose the answer. No identifying data is sent. Without an AI key everything runs on the ChisinauDex server."
+      ],
+      [
+        "Cookies and local storage",
+        "Necessary: language, profile, and accessibility preferences, and cookie consent, in the browser's local storage. Analytics (only with consent): a random session identifier and the page visited, stored on ChisinauDex's server. We do not use third-party cookies for advertising or tracking."
+      ],
+      [
+        "Fonts",
+        "Fonts are loaded from Google Fonts, which receives the browser's IP address."
+      ],
+      [
+        "Your rights",
+        "You can withdraw your consent for analytics at any time from \"Cookie settings\" in the page footer, and you can delete local data from your browser settings."
+      ]
+    ]
+  },
+  "cookie": {
+    "title": "Cookies on this site",
+    "text": "We use local storage necessary for the site to function and, only with your consent, anonymous usage statistics to improve our answers.",
+    "accept": "Accept all",
+    "reject": "Necessary only",
+    "settings": "Settings",
+    "save": "Save choice",
+    "necessary": "Necessary",
+    "necessaryDesc": "Language, profile, accessibility, and this choice. Always active.",
+    "analytics": "Usage statistics",
+    "analyticsDesc": "Pages visited and a random session identifier, stored on ChisinauDex's server.",
+    "policy": "Privacy policy"
+  },
+  "a11y": {
+    "title": "Accessibility",
+    "size": "Text size",
+    "contrast": "High contrast",
+    "cb": "Color blindness colors",
+    "cbNone": "Standard",
+    "cbSafe": "Safe palette",
+    "cbMono": "Black and white",
+    "font": "Easy-to-read font",
+    "spacing": "Increased spacing",
+    "links": "Underline links",
+    "reset": "Reset settings",
+    "close": "Close accessibility settings",
+    "open": "Accessibility settings",
+    "contrastDesc": "Black text on white, clear outlines",
+    "fontDesc": "Atkinson Hyperlegible, an easy-to-read font",
+    "spacingDesc": "More space between lines",
+    "linksDesc": "All links are underlined"
+  },
+  "footer": {
+    "text": "Real data from the official websites in Annex 1 · answers have no legal value; the original document's text prevails.",
+    "privacy": "Privacy",
+    "cookies": "Cookie settings",
+    "about": "About ChisinauDex",
+    "services": "Services",
+    "info": "Information",
+    "a11y": "Accessibility statement",
+    "rate": "Rate the service",
+    "rateThanks": "Thank you for your rating.",
+    "pick": "Choose a rating",
+    "comment": "Comment (optional)"
+  },
+  "common": {
+    "loading": "Loading…",
+    "error": "An error occurred."
+  },
+  "notFound": "Page not found",
+  "backHome": "Back to home page",
+  "district": {
+    "centru": "Centru",
+    "botanica": "Botanica",
+    "buiucani": "Buiucani",
+    "ciocana": "Ciocana",
+    "riscani": "Rîșcani"
+  },
+  "statement": {
+    "title": "Accessibility statement",
+    "intro": "Chișinău City Hall is committed to making the ChisinauDex service accessible to everyone, in line with the European standard EN 301 549 and WCAG 2.2 level AA.",
+    "sections": [
+      [
+        "Compliance status",
+        "ChisinauDex is partially compliant with WCAG 2.2 level AA, due to the exceptions listed below."
+      ],
+      [
+        "Content that is not fully accessible",
+        "The original documents on institutions' sites (especially scanned PDFs) may not be accessible; ChisinauDex shows their extracted text where it exists.\nQuotes stay in the document's original language (usually Romanian)."
+      ],
+      [
+        "Artificial intelligence",
+        "Answers may be composed automatically by an artificial intelligence system that may only select and connect exact quotes from the official documents. Answers are not legal advice."
+      ],
+      [
+        "Preparation of this statement",
+        "This statement was prepared on 26.09.2026. Measures in place: full keyboard navigation, visible focus, a contrast-checked palette, status messages for screen readers, text resizing up to 150%, colour-blind and low-vision modes. A formal audit (automated testing and screen-reader testing) is planned."
+      ],
+      [
+        "Feedback and contact",
+        "If you have difficulties using the service, use the form below or City Hall's One-Stop Shop (bd. Ștefan cel Mare și Sfânt 83, Chișinău). We reply within 30 days."
+      ],
+      [
+        "Enforcement procedure",
+        "If our reply does not satisfy you, you can file a petition under the Administrative Code."
+      ]
+    ],
+    "formLabel": "Describe the accessibility problem",
+    "formDone": "Thank you. Your message has been registered and will be answered within 30 days."
+  },
+  "emp": {
+    "heroTitle": "Staff assistant",
+    "heroSub": "Answer residents from City Hall's official documents, with exact quotes. Find the responsible institution and what needs updating on the sites.",
+    "title": "Front desk",
+    "intro": "For questions received at the desk, by phone or in petitions.",
+    "todo": "To resolve in content",
+    "openDashboard": "Open content management"
+  },
+  "services": {
+    "title": "Services",
+    "sub": "The legal deadline, fee and required documents for City Hall services, copied exactly from the institutions' official pages. Know the cost and the time in advance, with no middlemen.",
+    "search": "Search a service (e.g. certificate, land, advertising)",
+    "count": "{{n}} services",
+    "term": "Legal deadline",
+    "fee": "Fee",
+    "documents": "Required documents",
+    "notPublished": "Not published by the institution",
+    "missingNote": "Some information is not published by the institution. It is listed for City Hall staff in content management.",
+    "officialPage": "Official page",
+    "cardTitle": "Service card",
+    "footnote": "For now these are the services the Architecture, Urban Planning and Land Relations directorate publishes in a structured way. Other institutions do not yet publish the deadline and fee of their services.",
+    "field": {
+      "term": "deadline",
+      "fee": "fee",
+      "documents": "documents"
+    },
+    "all": "All services"
+  },
+  "petitions": {
+    "title": "My petitions",
+    "sentOn": "sent {{d}}",
+    "daysLeft": "{{n}} of {{total}} days left in the legal period",
+    "overdue": "The legal period ended {{n}} days ago",
+    "overdueHelp": "The institution did not answer in time. You can send an information request or challenge the administrative silence.",
+    "sentTo": "Sent as no. {{ticket}} to {{institution}}. The reply will appear under \"My petitions\".",
+    "statusAnswered": "Reply received",
+    "statusInProgress": "Being handled by an official",
+    "forget": "Remove from list"
+  },
+  "home": {
+    "secondary": "Information for your address"
+  }
+}

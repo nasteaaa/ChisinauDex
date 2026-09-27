@@ -1,0 +1,44 @@
+# Nightly refresh of the corpus from the 41 official sites ("git scraping").
+# If anything changed, the new snapshot is committed; Railway redeploys the backend on that push,
+# and the git history doubles as a changelog of what the city published or broke each day.
+name: Nightly crawl
+
+on:
+  schedule:
+    - cron: '0 1 * * *' # 01:00 UTC = 04:00 in Chișinău (summer time)
+  workflow_dispatch:
+
+concurrency:
+  group: crawl
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile --filter backend...
+      - name: Crawl official sources
+        run: pnpm --filter backend crawl
+        env:
+          # Optional: enables the contradiction scan (Grok or Groq key).
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+      - name: Sanity check before committing
+        run: node -e "const c=require('./backend/data/corpus.json'); if (c.docs.length < 1500) { console.error('Only', c.docs.length, 'docs — refusing to commit a broken crawl'); process.exit(1) }"
+      - name: Commit the new snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add backend/data/corpus.json backend/data/health.json backend/data/conflicts.json
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          git commit -m "data: nightly crawl $(date -u +%Y-%m-%d)"
+          git push
