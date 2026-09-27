@@ -1,0 +1,34 @@
+# Deploys the backend to Railway after CI passes on main (and after the nightly crawl commits new data).
+# Uses the Railway CLI with a project token, so Railway needs no GitHub app access to the repo.
+# Setup: Railway → project Settings → Tokens → create a token for "production";
+#        GitHub → repo Settings → Secrets and variables → Actions → New secret RAILWAY_TOKEN.
+name: Deploy backend
+
+on:
+  workflow_run:
+    workflows: [CI, Nightly crawl]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-backend
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # After CI: exactly the commit that passed. After the crawl: main, which now holds the crawl's own commit.
+          ref: ${{ github.event.workflow_run.name == 'Nightly crawl' && 'main' || github.event.workflow_run.head_sha || github.sha }}
+      - name: Deploy with the Railway CLI
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        # railway.json at the repo root makes Railway build backend/Dockerfile.
+        run: npx --yes @railway/cli@5.62.1 up --ci --service 81d83471-e468-42f6-ad0c-f033782378ff

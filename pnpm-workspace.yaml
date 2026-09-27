@@ -1,0 +1,16 @@
+packages:
+  - frontend
+  - backend
+
+# Supply-chain hardening: don't install package versions published < 1 day ago
+# (most malicious npm releases are caught and yanked within hours).
+minimumReleaseAge: 1440
+
+# Only these packages may run install scripts (pnpm blocks the rest by default).
+allowBuilds:
+  esbuild: true
+  onnxruntime-node: true # Microsoft ONNX runtime, runs the local embedding model
+  protobufjs: false
+
+# Required by `pnpm deploy` (used in backend/Dockerfile).
+injectWorkspacePackages: true
