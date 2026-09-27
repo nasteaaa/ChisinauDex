@@ -58,13 +58,13 @@ GitHub Actions runs lint, build, tests and a Docker build on every push, and re-
 
 ## Deploying
 
-The frontend is a static site and goes on **Vercel**. The backend streams answers, so it runs as a normal long-running server on **Railway** (`backend/Dockerfile`). Postgres + pgvector is a separate managed database: **Neon**'s free tier is enough (the data is about 80 MB).
+The frontend is a static site and goes on **Vercel**. The backend streams answers, so it runs as a normal long-running server on **Railway** (the root `Dockerfile`). Postgres + pgvector is a separate managed database: **Neon**'s free tier is enough (the data is about 80 MB).
 
 Indexing and serving are split, as usual for RAG: embedding all chunks needs about 3 GB of memory, so it runs as a job (`pnpm --filter backend embed`: from a laptop once, then after every nightly crawl in GitHub Actions). The web server only embeds the questions and stays at about 750 MB. Locally, without `DATABASE_URL`, the server uses an embedded Postgres (PGlite) and builds the index itself.
 
 **Database (Neon):** create a free project and copy its connection string (pgvector needs no setup: the backend runs `CREATE EXTENSION vector`). Build the index once from your laptop: `DATABASE_URL=<connection string> pnpm --filter backend embed` (about 5 minutes).
 
-**Backend (Railway):** create a project from this repo and leave the root directory empty: `railway.json` at the repo root tells Railway to build `backend/Dockerfile`. Set `DATABASE_URL`, `AI_API_KEY`, `PORT=3000` and `CORS_ORIGINS` (the Vercel URL). Optionally add a volume at `/app/data/runtime` (with `RAILWAY_RUN_UID=0`) to cache the embedding model between deploys. Generate a domain and check that `/health` shows `"ready":true`.
+**Backend (Railway):** create a project from this repo and leave the root directory empty: Railway builds the `Dockerfile` at the repo root (`railway.json` says so too). Set `DATABASE_URL`, `AI_API_KEY`, `PORT=3000` and `CORS_ORIGINS` (the Vercel URL). Optionally add a volume at `/app/data/runtime` (with `RAILWAY_RUN_UID=0`) to cache the embedding model between deploys. Generate a domain and check that `/health` shows `"ready":true`.
 
 **Deploys:** the "Deploy backend" workflow deploys to Railway after CI passes on `main`; it needs a Railway project token as the `RAILWAY_TOKEN` secret.
 

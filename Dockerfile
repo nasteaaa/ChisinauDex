@@ -1,5 +1,6 @@
-# Build context is the REPO ROOT (the pnpm lockfile lives there):
-#   docker build -f backend/Dockerfile .
+# The backend image. It lives at the repo root because the build context is the whole workspace
+# (the pnpm lockfile is here), and because Railway always builds a root Dockerfile, whatever its UI settings say:
+#   docker build .
 # Debian (glibc), not Alpine: the local embedding model runs on onnxruntime-node, which ships glibc binaries only.
 FROM node:22-bookworm-slim AS build
 RUN npm install -g pnpm@11.13.1

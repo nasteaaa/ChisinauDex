@@ -34,4 +34,4 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: Build backend image (same Dockerfile Railway uses)
-        run: docker build -f backend/Dockerfile -t chisinaudex-backend .
+        run: docker build -t chisinaudex-backend .
