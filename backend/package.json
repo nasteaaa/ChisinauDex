@@ -36,7 +36,7 @@
     "zod": "^4.6.5"
   },
   "devDependencies": {
-    "@types/node": "^22.20.4",
+    "@types/node": "^26.6.2",
     "@types/pg": "^8.23.1",
     "concurrently": "^10.0.1",
     "fastify-tsconfig": "^3.0.0",
