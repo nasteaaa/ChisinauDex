@@ -75,6 +75,18 @@ export async function syncVectors(log: (msg: string) => void = console.log) {
   log(`embeddings ready: ${vectorIndex.total} chunks`)
 }
 
+/** Reads how much of the index exists, without building anything (the web server in production). */
+export async function loadVectorStatus() {
+  const d = await db()
+  if (!d.vector) return
+  const [r] = await d.query<{ total: number; embedded: number }>(
+    'SELECT count(DISTINCT c.hash)::int AS total, count(DISTINCT e.hash)::int AS embedded FROM chunks c LEFT JOIN embeddings e ON e.hash = c.hash'
+  )
+  vectorIndex.total = r?.total ?? 0
+  vectorIndex.embedded = r?.embedded ?? 0
+  vectorIndex.ready = vectorIndex.total > 0 && vectorIndex.embedded === vectorIndex.total
+}
+
 /** Nearest chunks to the question by cosine similarity (pgvector). Empty while the index is not built. */
 export async function vectorSearch(question: string, limit = 40): Promise<Hit[]> {
   const d = await db()

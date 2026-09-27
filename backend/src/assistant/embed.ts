@@ -16,7 +16,12 @@ function load(): Promise<Extractor> {
   extractor ??= (async () => {
     const { pipeline, env } = await import('@huggingface/transformers')
     env.cacheDir = join(config.runtimeDir, 'models')
-    return (await pipeline('feature-extraction', MODEL, { dtype: 'q8' })) as unknown as Extractor
+    // Without the arena and memory patterns ONNX frees its buffers after each call instead of keeping one per
+    // input length it has seen (which grew the process to ~3 GB while indexing).
+    return (await pipeline('feature-extraction', MODEL, {
+      dtype: 'q8',
+      session_options: { enableCpuMemArena: false, enableMemPattern: false }
+    })) as unknown as Extractor
   })()
   return extractor
 }

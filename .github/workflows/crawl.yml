@@ -1,5 +1,6 @@
 # Nightly refresh of the corpus from the 41 official sites ("git scraping").
-# If anything changed, the new snapshot is committed; Railway redeploys the backend on that push,
+# If anything changed, the new snapshot is committed, its chunks are embedded into Postgres, and the
+# "Deploy backend" workflow redeploys the backend,
 # and the git history doubles as a changelog of what the city published or broke each day.
 name: Nightly crawl
 
@@ -19,10 +20,13 @@ jobs:
   crawl:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      # Postgres with pgvector (e.g. Neon); the embedding step is skipped when it is not set.
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: pnpm
@@ -42,3 +46,8 @@ jobs:
           if git diff --cached --quiet; then echo "No changes"; exit 0; fi
           git commit -m "data: nightly crawl $(date -u +%Y-%m-%d)"
           git push
+      # Ingestion: embed the new or changed chunks into Postgres (pgvector). Runs here, not on the web server,
+      # because embedding thousands of chunks needs ~3 GB of memory. Skipped when the secret is not set.
+      - name: Update the vector index
+        if: env.DATABASE_URL != ''
+        run: pnpm --filter backend embed

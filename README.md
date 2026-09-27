@@ -58,13 +58,19 @@ GitHub Actions runs lint, build, tests and a Docker build on every push, and re-
 
 ## Deploying
 
-The frontend is a static site and goes on **Vercel**. The backend streams answers and runs the embedding model, so it needs a normal long-running server: we use **Railway** with `backend/Dockerfile`, with Postgres + pgvector embedded on its volume (or any managed Postgres with pgvector).
+The frontend is a static site and goes on **Vercel**. The backend streams answers, so it runs as a normal long-running server on **Railway** (`backend/Dockerfile`). Postgres + pgvector is a separate managed database: **Neon**'s free tier is enough (the data is about 80 MB).
 
-**Backend (Railway):** create a project from this repo and leave the root directory empty: `railway.json` at the repo root tells Railway to build `backend/Dockerfile`. Add a volume mounted at `/app/data/runtime` so questions and ratings survive redeploys. No separate database is needed: without `DATABASE_URL` the backend runs Postgres + pgvector embedded (PGlite) and stores it on the volume. To use a managed database instead (Neon or Supabase free tier, or Railway's pgvector template), set `DATABASE_URL` to its connection URL. Set `CORS_ORIGINS` to the Vercel URL and, optionally, `AI_API_KEY`. Generate a domain and check that `/health` answers: its `vectors` field shows the embedding index being built after the first deploy (search uses keywords only until it's ready). To skip the wait, build the index from your laptop: `DATABASE_URL=<public URL> pnpm --filter backend embed` (about 4 minutes).
+Indexing and serving are split, as usual for RAG: embedding all chunks needs about 3 GB of memory, so it runs as a job (`pnpm --filter backend embed`: from a laptop once, then after every nightly crawl in GitHub Actions). The web server only embeds the questions and stays at about 750 MB. Locally, without `DATABASE_URL`, the server uses an embedded Postgres (PGlite) and builds the index itself.
+
+**Database (Neon):** create a free project and copy its connection string (pgvector needs no setup: the backend runs `CREATE EXTENSION vector`). Build the index once from your laptop: `DATABASE_URL=<connection string> pnpm --filter backend embed` (about 5 minutes).
+
+**Backend (Railway):** create a project from this repo and leave the root directory empty: `railway.json` at the repo root tells Railway to build `backend/Dockerfile`. Set `DATABASE_URL`, `AI_API_KEY`, `PORT=3000` and `CORS_ORIGINS` (the Vercel URL). Optionally add a volume at `/app/data/runtime` (with `RAILWAY_RUN_UID=0`) to cache the embedding model between deploys. Generate a domain and check that `/health` shows `"ready":true`.
+
+**Deploys:** the "Deploy backend" workflow deploys to Railway after CI passes on `main`; it needs a Railway project token as the `RAILWAY_TOKEN` secret.
 
 **Frontend (Vercel):** import the repo with `frontend` as the root directory and set `VITE_API_URL` to the Railway URL. Redeploy after changing it, since Vite bakes it in at build time.
 
-**Nightly crawl:** optionally add `AI_API_KEY` as a repository secret to enable the contradiction scan, then run the "Nightly crawl" workflow once by hand from the Actions tab.
+**Nightly crawl:** add `DATABASE_URL` as a repository secret so new pages are embedded after each crawl, and optionally `AI_API_KEY` for the contradiction scan.
 
 ## Team
 

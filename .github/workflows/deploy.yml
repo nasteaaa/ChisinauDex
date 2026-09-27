@@ -23,7 +23,7 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           # After CI: exactly the commit that passed. After the crawl: main, which now holds the crawl's own commit.
           ref: ${{ github.event.workflow_run.name == 'Nightly crawl' && 'main' || github.event.workflow_run.head_sha || github.sha }}
