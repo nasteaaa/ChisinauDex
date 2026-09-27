@@ -15,4 +15,4 @@ Where things live:
 
 Commands: `pnpm dev`, `pnpm build`, `pnpm test`, `pnpm lint`, `pnpm crawl`.
 
-Settings are read from environment variables and validated in `src/config.ts`. `DATABASE_URL` points at Postgres with pgvector (optional locally). The other interesting one is `AI_API_KEY` (a Grok or Groq key; the provider is recognised from the key). Everything works without it.
+Settings are read from environment variables and validated in `src/config.ts`. `DATABASE_URL` points at Postgres with pgvector (optional locally). `AI_API_KEY` is a Groq key and `AI_MODELS` the models to use, best first (when one reaches its daily free-tier limit, the next one answers). Everything works without a key.

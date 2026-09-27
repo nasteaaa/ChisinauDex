@@ -155,7 +155,8 @@
     "alsoRoute": "Poate fi util și:",
     "correctedTo": "Am corectat și am căutat:",
     "searchExact": "Caută exact „{{q}}”",
-    "romanianOnly": "Informația există doar în documente în limba română. Citatele rămân în original, cu traducere automată."
+    "romanianOnly": "Informația există doar în documente în limba română. Citatele rămân în original, cu traducere automată.",
+    "tooMany": "Prea multe întrebări într-un minut din această rețea. Încercați din nou peste câteva secunde."
   },
   "feedback": {
     "title": "Evaluați răspunsul",
@@ -467,7 +468,7 @@
       ],
       [
         "Inteligența artificială",
-        "Când modul AI este activ, întrebarea și pasajele găsite sunt trimise furnizorului modelului (xAI Grok sau Groq) pentru a compune răspunsul. Nu trimitem date de identificare. Fără cheie AI, totul rulează pe serverul ChisinauDex."
+        "Când modul AI este activ, întrebarea și pasajele găsite sunt trimise furnizorului modelului (Groq) pentru a compune răspunsul. Nu trimitem date de identificare. Fără cheie AI, totul rulează pe serverul ChisinauDex."
       ],
       [
         "Cookie-uri și stocare locală",

@@ -17,7 +17,7 @@ The rule we built everything around: **the assistant never answers from memory.*
 - **Staff view** for City Hall employees: an internal assistant that routes a situation to the right institution, plus a dashboard with contradictions, unanswered questions, hacked or broken pages on the city's sites, answer ratings and usage stats.
 - **Accessible by default**: keyboard navigation, screen-reader friendly, high-contrast and colour-blind modes, larger text, voice input, and answers read aloud.
 
-It works without an AI key too: it then shows the most relevant quotes directly, taken from the documents and from a live search of the official sites. With an AI key (Grok or Groq), the model writes a short plain-language answer, but it is only allowed to connect quotes, and every quote is checked word for word against the source before it is shown.
+It works without an AI key too: it then shows the most relevant quotes directly, taken from the documents and from a live search of the official sites. With a Groq API key, the model writes a short plain-language answer, but it is only allowed to connect quotes, and every quote is checked word for word against the source before it is shown.
 
 ## Running it locally
 
@@ -25,7 +25,7 @@ You need Node 22 and pnpm 11 (`corepack enable` sets it up).
 
 ```bash
 pnpm install
-cp backend/.env.example backend/.env   # optional: put your Grok or Groq key in AI_API_KEY
+cp backend/.env.example backend/.env   # optional: put your Groq key in AI_API_KEY
 pnpm dev
 ```
 
@@ -64,7 +64,7 @@ Indexing and serving are split, as usual for RAG: embedding all chunks needs abo
 
 **Database (Neon):** create a free project and copy its connection string (pgvector needs no setup: the backend runs `CREATE EXTENSION vector`). Build the index once from your laptop: `DATABASE_URL=<connection string> pnpm --filter backend embed` (about 5 minutes).
 
-**Backend (Railway):** create a project from this repo and leave the root directory empty: Railway builds the `Dockerfile` at the repo root (`railway.json` says so too). Set `DATABASE_URL`, `AI_API_KEY`, `PORT=3000` and `CORS_ORIGINS` (the Vercel URL). Optionally add a volume at `/app/data/runtime` (with `RAILWAY_RUN_UID=0`) to cache the embedding model between deploys. Generate a domain and check that `/health` shows `"ready":true`.
+**Backend (Railway):** create a project from this repo and leave the root directory empty: Railway builds the `Dockerfile` at the repo root (`railway.json` says so too). Set `DATABASE_URL`, `AI_API_KEY` (Groq), optionally `AI_MODELS` (models to use, best first), `PORT=3000` and `CORS_ORIGINS` (the Vercel URL). Optionally add a volume at `/app/data/runtime` (with `RAILWAY_RUN_UID=0`) to cache the embedding model between deploys. Generate a domain and check that `/health` shows `"ready":true`.
 
 **Deploys:** the "Deploy backend" workflow deploys to Railway after CI passes on `main`; it needs a Railway project token as the `RAILWAY_TOKEN` secret.
 

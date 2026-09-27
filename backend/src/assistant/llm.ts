@@ -1,84 +1,92 @@
 import { config } from '../config'
 
-// One optional key, AI_API_KEY, for every provider. All of them are called through the same
-// OpenAI-compatible chat-completions API; which one is decided by the key's prefix.
-// Without a key the assistant runs its no-AI fallback.
-interface Provider { prefix: string; name: string; base: string; prefer: RegExp[]; fallbackModel: string; headers?: Record<string, string> }
-
-const PROVIDERS: Provider[] = [
-  { prefix: 'sk-ant-', name: 'Anthropic Claude', base: 'https://api.anthropic.com/v1', prefer: [/sonnet/, /opus/, /haiku/], fallbackModel: 'claude-sonnet-5', headers: { 'anthropic-version': '2023-06-01' } },
-  { prefix: 'sk-or-', name: 'OpenRouter', base: 'https://openrouter.ai/api/v1', prefer: [/claude.*sonnet/, /gpt-4/, /gemini/], fallbackModel: 'openrouter/auto' },
-  { prefix: 'xai-', name: 'xAI Grok', base: 'https://api.x.ai/v1', prefer: [/^grok-4(?!.*(image|vision))/, /^grok-3(?!.*(image|vision))/, /^grok/], fallbackModel: 'grok-4' },
-  { prefix: 'gsk_', name: 'Groq', base: 'https://api.groq.com/openai/v1', prefer: [/gpt-oss-20b/, /llama-3\.3-70b/, /llama-4/, /llama/], fallbackModel: 'llama-3.3-70b-versatile' },
-  { prefix: 'AIza', name: 'Google Gemini', base: 'https://generativelanguage.googleapis.com/v1beta/openai', prefer: [/gemini-.*-pro/, /gemini-.*-flash(?!.*lite)/, /gemini/], fallbackModel: 'gemini-2.5-flash' },
-  { prefix: 'sk-', name: 'OpenAI', base: 'https://api.openai.com/v1', prefer: [/^gpt-5(?!.*(mini|nano))/, /^gpt-4\.1/, /^gpt-4o/], fallbackModel: 'gpt-4o' }
-]
+// The model API: Groq (OpenAI-compatible chat completions), key in AI_API_KEY.
+// AI_MODELS is an ordered list: each model has its own free-tier quota, so when one is rate-limited
+// the next one answers. Without a key the assistant runs its no-AI fallback.
 
 const key = config.AI_API_KEY?.trim()
-const provider = key ? PROVIDERS.find((p) => key.startsWith(p.prefix)) ?? null : null
+const models = config.AI_MODELS.split(',').map((m) => m.trim()).filter(Boolean)
 
-export const llmEnabled = () => provider !== null
-export const llmProvider = () => provider?.name ?? null
+export const llmEnabled = () => !!key
 
-const headers = () => ({ Authorization: `Bearer ${key}`, 'x-api-key': key ?? '', 'Content-Type': 'application/json', ...provider?.headers })
+/** Model -> time until which its daily quota is used up. */
+const exhausted = new Map<string, number>()
 
-// The model is AI_MODEL if set, otherwise the best match among the models this key can use (asked once).
-let modelPromise: Promise<string> | null = null
-function model(): Promise<string> {
-  if (config.AI_MODEL) return Promise.resolve(config.AI_MODEL)
-  modelPromise ??= (async () => {
-    const res = await fetch(`${provider!.base}/models`, { headers: headers(), signal: AbortSignal.timeout(10000) }).catch(() => null)
-    if (!res?.ok) return provider!.fallbackModel
-    const ids = ((await res.json()) as { data?: { id: string }[] }).data?.map((m) => m.id) ?? []
-    const chat = ids.filter((id) => !/whisper|tts|guard|embed|image|vision|audio/i.test(id))
-    for (const re of provider!.prefer) {
-      const hit = chat.find((id) => re.test(id))
-      if (hit) return hit
-    }
-    return chat[0] ?? provider!.fallbackModel
-  })().catch((err: unknown) => { modelPromise = null; throw err })
-  return modelPromise
+/** "Please try again in 4m24.8s" -> milliseconds (0 when the message gives no time). */
+function retryIn(message: string): number {
+  const m = message.match(/try again in (?:(\d+)h)?(?:(\d+)m)?(?:([\d.]+)s)?/)
+  return m ? ((Number(m[1] ?? 0) * 60 + Number(m[2] ?? 0)) * 60 + Number(m[3] ?? 0)) * 1000 : 0
 }
 
-/** Free tiers rate-limit (HTTP 429): wait as the provider asks (or 2 s, then 6 s) and try again. */
-async function withRetry(call: () => Promise<Response>): Promise<Response> {
-  for (const fallbackWait of [2000, 6000]) {
-    const res = await call()
-    if (res.status !== 429) return res
-    const asked = Number(res.headers.get('retry-after')) * 1000
-    await new Promise((r) => setTimeout(r, Math.min(asked || fallbackWait, 15000)))
-  }
-  return call()
-}
+const isDailyLimit = (message: string) => /per day|\bTPD\b|\bRPD\b/i.test(message)
 
 interface Opts { system: string; user: string; maxTokens: number }
 
-async function completeText(opts: Opts): Promise<string> {
-  if (!provider) throw new Error('AI not configured')
-  const name = await model()
+function call(name: string, opts: Opts): Promise<Response> {
   // Reasoning models spend tokens thinking before they answer: keep the thinking short and budget for it.
-  const reasoning = /gpt-oss|^o\d|gpt-5|reason|thinking/i.test(name)
-  const res = await withRetry(() => fetch(`${provider.base}/chat/completions`, {
+  const reasoning = /gpt-oss|reason|thinking/i.test(name)
+  return fetch(`${config.AI_BASE_URL}/chat/completions`, {
     method: 'POST',
-    headers: headers(),
+    headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({
       model: name,
-      max_tokens: reasoning ? opts.maxTokens + 2048 : opts.maxTokens,
+      // Groq counts the requested maximum against the per-minute token limit, so keep the reserve modest.
+      max_tokens: reasoning ? opts.maxTokens + 1024 : opts.maxTokens,
       ...(reasoning ? { reasoning_effort: 'low' } : { temperature: 0 }),
       messages: [{ role: 'system', content: opts.system }, { role: 'user', content: opts.user }]
     }),
     signal: AbortSignal.timeout(config.LLM_TIMEOUT_MS)
-  }))
-  if (!res.ok) throw new Error(`AI HTTP ${res.status}`)
+  })
+}
+
+/**
+ * Tries the models in order. A rate limit moves on to the next model at once: a daily limit also skips that
+ * model until its reset, a per-minute one only for this call. If every model is busy for the minute, waits once
+ * as the provider asks (at most 15 s) and tries the first of them again.
+ */
+async function completeText(opts: Opts): Promise<string> {
+  if (!key) throw new Error('AI not configured')
+  const available = models.filter((m) => (exhausted.get(m) ?? 0) < Date.now())
+  if (!available.length) throw new Error('AI daily limits reached on every model')
+
+  let busy: { name: string; waitMs: number } | undefined
+  for (const name of available) {
+    const res = await call(name, opts)
+    if (res.ok) return read(res)
+    // The provider's message says which limit was hit (tokens per minute or per day, request too large…).
+    const message = (await res.text()).slice(0, 300)
+    if (res.status !== 429) throw new Error(`AI HTTP ${res.status}: ${message}`)
+    if (isDailyLimit(message)) {
+      exhausted.set(name, Date.now() + (retryIn(message) || 15 * 60_000))
+      console.warn(`AI model ${name}: daily limit reached, using the next model`)
+    } else {
+      busy ??= { name, waitMs: retryIn(message) || Number(res.headers.get('retry-after')) * 1000 || 2000 }
+    }
+  }
+  if (!busy) throw new Error('AI daily limits reached on every model')
+  await new Promise((r) => setTimeout(r, Math.min(busy.waitMs, 15_000)))
+  const res = await call(busy.name, opts)
+  if (!res.ok) throw new Error(`AI HTTP ${res.status}: ${(await res.text()).slice(0, 300)}`)
+  return read(res)
+}
+
+async function read(res: Response): Promise<string> {
   const body = (await res.json()) as { choices?: { message?: { content?: string } }[] }
   return body.choices?.[0]?.message?.content ?? ''
 }
 
 /** One-shot completion that must return a JSON object. Throws on any failure so callers can fall back. */
 export async function completeJson<T>(opts: Opts): Promise<T> {
-  const text = await completeText(opts)
-  const start = text.indexOf('{')
-  const end = text.lastIndexOf('}')
-  if (start < 0 || end < start) throw new Error('AI returned no JSON')
-  return JSON.parse(text.slice(start, end + 1)) as T
+  // Models occasionally return truncated or malformed JSON; one more attempt usually succeeds.
+  for (let attempt = 1; ; attempt++) {
+    const text = await completeText(opts)
+    const start = text.indexOf('{')
+    const end = text.lastIndexOf('}')
+    try {
+      if (start < 0 || end < start) throw new Error('AI returned no JSON')
+      return JSON.parse(text.slice(start, end + 1)) as T
+    } catch (e) {
+      if (attempt >= 2) throw e
+    }
+  }
 }

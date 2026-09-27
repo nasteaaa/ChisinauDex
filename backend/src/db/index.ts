@@ -75,6 +75,9 @@ async function connect(): Promise<Omit<Db, 'vector'>> {
   if (config.DATABASE_URL) {
     const { Pool } = await import('pg')
     const pool = new Pool({ connectionString: config.DATABASE_URL, max: 5 })
+    // Neon suspends an idle database and drops its connections; without this listener node-postgres would
+    // crash the process. The broken connection is discarded and the next query opens a new one.
+    pool.on('error', (e) => console.warn(`database connection dropped: ${e.message}`))
     return {
       query: async <T>(sql: string, params?: unknown[]) => (await pool.query(sql, params)).rows as T[],
       exec: async (sql: string) => { await pool.query(sql) },

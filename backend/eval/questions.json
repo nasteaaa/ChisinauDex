@@ -1,0 +1,348 @@
+{
+  "note": "20 questions: 10 Romanian, 10 Russian. 10 answerable from the corpus, 5 with no answer in any Annex 1 source (checked: the topic appears in 0 documents), 5 about the 2 real contradictions in the corpus (startup grant 200 000 vs 250 000 lei; trolleybus ticket 6 vs 7 lei). `sources`: institutions whose documents are a correct citation; `route`: the institution the answer should send the resident to. Items with \"set\": \"research\" are the team's manual test questions: reported separately, not part of the headline metrics. Grades 4/5 enrolment and the bare word \"abuz\" have no specific answer in the corpus, so \"not found\" is the right outcome.",
+  "questions": [
+    {
+      "id": "ro-01",
+      "lang": "ro",
+      "expect": "answer",
+      "question": "Cum înscriu copilul la grădiniță?",
+      "sources": [
+        "egradinita",
+        "dgets",
+        "dets-botanica",
+        "dets-buiucani",
+        "dets-centru",
+        "dets-riscani",
+        "help"
+      ],
+      "route": "egradinita"
+    },
+    {
+      "id": "ro-02",
+      "lang": "ro",
+      "expect": "answer",
+      "question": "Cum obțin certificat de urbanism?",
+      "sources": [
+        "dgaurf",
+        "chisinau"
+      ],
+      "route": "dgaurf"
+    },
+    {
+      "id": "ro-03",
+      "lang": "ro",
+      "expect": "answer",
+      "question": "Care este tariful la apă pentru un metru cub?",
+      "sources": [
+        "acc"
+      ],
+      "route": "acc"
+    },
+    {
+      "id": "ro-04",
+      "lang": "ro",
+      "expect": "answer",
+      "question": "Până când se depun cererile de înscriere în clasa I?",
+      "sources": [
+        "escoala",
+        "dgets",
+        "dets-botanica",
+        "dets-buiucani",
+        "dets-centru",
+        "dets-riscani"
+      ],
+      "route": "escoala"
+    },
+    {
+      "id": "ro-05",
+      "lang": "ro",
+      "expect": "answer",
+      "question": "Care este programul de lucru al Ghișeului Unic?",
+      "sources": [
+        "chisinau",
+        "pretura-botanica",
+        "pretura-buiucani",
+        "pretura-centru",
+        "pretura-ciocana",
+        "pretura-riscani",
+        "dgaurf"
+      ],
+      "route": "chisinau"
+    },
+    {
+      "id": "ro-06",
+      "lang": "ro",
+      "expect": "gap",
+      "question": "Cum înregistrez o firmă nouă la Agenția Servicii Publice?"
+    },
+    {
+      "id": "ro-07",
+      "lang": "ro",
+      "expect": "gap",
+      "question": "Ce acte trebuie pentru viza în Marea Britanie?"
+    },
+    {
+      "id": "ro-08",
+      "lang": "ro",
+      "expect": "conflict",
+      "question": "Ce sumă poate primi un startup de la primărie?",
+      "sources": [
+        "startup",
+        "help",
+        "invest",
+        "proiecte"
+      ],
+      "route": "startup"
+    },
+    {
+      "id": "ro-09",
+      "lang": "ro",
+      "expect": "conflict",
+      "question": "Cât costă biletul de troleibuz?",
+      "sources": [
+        "mobilitate",
+        "proiecte",
+        "rtec"
+      ],
+      "route": "mobilitate"
+    },
+    {
+      "id": "ro-10",
+      "lang": "ro",
+      "expect": "conflict",
+      "question": "Care este suma maximă a grantului pentru tineri și migranți?",
+      "sources": [
+        "startup",
+        "help",
+        "invest",
+        "proiecte"
+      ],
+      "route": "startup"
+    },
+    {
+      "id": "ru-01",
+      "lang": "ru",
+      "expect": "answer",
+      "question": "Как записать ребенка в детский сад?",
+      "sources": [
+        "egradinita",
+        "dgets",
+        "dets-botanica",
+        "dets-buiucani",
+        "dets-centru",
+        "dets-riscani",
+        "help"
+      ],
+      "route": "egradinita"
+    },
+    {
+      "id": "ru-02",
+      "lang": "ru",
+      "expect": "answer",
+      "question": "Куда обращаться, если сломался лифт?",
+      "sources": [
+        "liftservice"
+      ],
+      "route": "liftservice"
+    },
+    {
+      "id": "ru-03",
+      "lang": "ru",
+      "expect": "answer",
+      "question": "Как получить сертификат урбанизма?",
+      "sources": [
+        "dgaurf",
+        "chisinau"
+      ],
+      "route": "dgaurf"
+    },
+    {
+      "id": "ru-04",
+      "lang": "ru",
+      "expect": "answer",
+      "question": "Где можно оплатить счёт за воду?",
+      "sources": [
+        "acc",
+        "infocom"
+      ],
+      "route": "acc"
+    },
+    {
+      "id": "ru-05",
+      "lang": "ru",
+      "expect": "answer",
+      "question": "Как подать петицию в примэрию?",
+      "sources": [
+        "chisinau",
+        "pretura-botanica",
+        "pretura-buiucani",
+        "pretura-centru",
+        "pretura-ciocana",
+        "pretura-riscani"
+      ],
+      "route": "chisinau"
+    },
+    {
+      "id": "ru-06",
+      "lang": "ru",
+      "expect": "gap",
+      "question": "Как оформить пенсию по возрасту?"
+    },
+    {
+      "id": "ru-07",
+      "lang": "ru",
+      "expect": "gap",
+      "question": "Сколько стоит квартира в Кишинёве?"
+    },
+    {
+      "id": "ru-08",
+      "lang": "ru",
+      "expect": "gap",
+      "question": "Какие документы нужны для визы в Великобританию?"
+    },
+    {
+      "id": "ru-09",
+      "lang": "ru",
+      "expect": "conflict",
+      "question": "Какой грант можно получить для стартапа?",
+      "sources": [
+        "startup",
+        "help",
+        "invest",
+        "proiecte"
+      ],
+      "route": "startup"
+    },
+    {
+      "id": "ru-10",
+      "lang": "ru",
+      "expect": "conflict",
+      "question": "Сколько стоит билет на троллейбус?",
+      "sources": [
+        "mobilitate",
+        "proiecte",
+        "rtec"
+      ],
+      "route": "mobilitate"
+    },
+    {
+      "id": "rs-01",
+      "set": "research",
+      "lang": "ro",
+      "expect": "answer",
+      "question": "cum mă înscriu la liceu",
+      "sources": [
+        "escoala",
+        "dgets",
+        "dets-botanica",
+        "dets-buiucani",
+        "dets-centru",
+        "dets-riscani",
+        "dets-ciocana"
+      ],
+      "route": "escoala"
+    },
+    {
+      "id": "rs-02",
+      "set": "research",
+      "lang": "ro",
+      "expect": "answer",
+      "question": "cum inscriu copilul la liceu",
+      "sources": [
+        "escoala",
+        "dgets",
+        "dets-botanica",
+        "dets-buiucani",
+        "dets-centru",
+        "dets-riscani",
+        "dets-ciocana"
+      ],
+      "route": "escoala"
+    },
+    {
+      "id": "rs-03",
+      "set": "research",
+      "lang": "ro",
+      "expect": "answer",
+      "question": "cine e primarul in chisinau",
+      "route": "chisinau"
+    },
+    {
+      "id": "rs-04",
+      "set": "research",
+      "lang": "ro",
+      "expect": "answer",
+      "question": "cum inscriu copilul la scoala",
+      "sources": [
+        "escoala",
+        "dgets",
+        "dets-botanica",
+        "dets-buiucani",
+        "dets-centru",
+        "dets-riscani",
+        "dets-ciocana"
+      ],
+      "route": "escoala"
+    },
+    {
+      "id": "rs-05",
+      "set": "research",
+      "lang": "ro",
+      "expect": "answer",
+      "question": "cum inscriu copilul la gimnaziu",
+      "sources": [
+        "escoala",
+        "dgets",
+        "dets-botanica",
+        "dets-buiucani",
+        "dets-centru",
+        "dets-riscani",
+        "dets-ciocana"
+      ],
+      "route": "escoala"
+    },
+    {
+      "id": "rs-06",
+      "set": "research",
+      "lang": "ro",
+      "expect": "answer",
+      "question": "cum circula troleibuzele in centru",
+      "sources": [
+        "mobilitate",
+        "rtec",
+        "proiecte",
+        "visit"
+      ],
+      "route": "mobilitate"
+    },
+    {
+      "id": "rs-07",
+      "set": "research",
+      "lang": "ro",
+      "expect": "answer",
+      "question": "cum raportez un caz de coruptie",
+      "route": "chisinau"
+    },
+    {
+      "id": "rs-08",
+      "set": "research",
+      "lang": "ro",
+      "expect": "gap",
+      "question": "cum inscriu copilul in clasa 4"
+    },
+    {
+      "id": "rs-09",
+      "set": "research",
+      "lang": "ro",
+      "expect": "gap",
+      "question": "cum inscriu copilul in clasa 5"
+    },
+    {
+      "id": "rs-10",
+      "set": "research",
+      "lang": "ro",
+      "expect": "gap",
+      "question": "abuz"
+    }
+  ]
+}

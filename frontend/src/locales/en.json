@@ -155,7 +155,8 @@
     "alsoRoute": "Also relevant:",
     "correctedTo": "Showing results for",
     "searchExact": "Search instead for \"{{q}}\"",
-    "romanianOnly": "This information exists only in Romanian documents. Quotes are shown in the original, with an automatic translation."
+    "romanianOnly": "This information exists only in Romanian documents. Quotes are shown in the original, with an automatic translation.",
+    "tooMany": "Too many questions from this network in one minute. Please try again in a few seconds."
   },
   "feedback": {
     "title": "Rate the answer",
@@ -467,7 +468,7 @@
       ],
       [
         "Artificial intelligence",
-        "When AI mode is on, the question and the passages found are sent to the model provider (xAI Grok or Groq) to compose the answer. No identifying data is sent. Without an AI key everything runs on the ChisinauDex server."
+        "When AI mode is on, the question and the passages found are sent to the model provider (Groq) to compose the answer. No identifying data is sent. Without an AI key everything runs on the ChisinauDex server."
       ],
       [
         "Cookies and local storage",

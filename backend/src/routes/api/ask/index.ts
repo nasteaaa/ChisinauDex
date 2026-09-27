@@ -2,6 +2,7 @@ import { PassThrough } from 'node:stream'
 import { type FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
 import { z } from 'zod'
 import { ask } from '../../../assistant/ask'
+import { config } from '../../../config'
 import { CATEGORIES } from '../../../corpus/types'
 import { ServiceCardSchema } from '../services'
 
@@ -66,7 +67,9 @@ const AskBody = z.object({
 })
 
 const askRoutes: FastifyPluginAsyncZod = async (fastify): Promise<void> => {
+  const limit = { rateLimit: { max: config.ASK_RATE_LIMIT_PER_MINUTE, timeWindow: '1 minute' } }
   fastify.post('/', {
+    config: limit,
     schema: { body: AskBody, response: { 200: Answer } }
   }, async function (request) {
     return ask(request.body)
@@ -75,6 +78,7 @@ const askRoutes: FastifyPluginAsyncZod = async (fastify): Promise<void> => {
   // Same pipeline, streamed as NDJSON: one {"type":"progress"} line per real stage, then {"type":"answer"}.
   // (No response schema: the body is a stream; the final answer has the same shape as POST /api/ask.)
   fastify.post('/stream', {
+    config: limit,
     schema: { body: AskBody }
   }, async function (request, reply) {
     const out = new PassThrough()

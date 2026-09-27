@@ -5,11 +5,14 @@ import { db } from '../db'
 import type { Answer, AskInput } from './ask'
 
 // Same question + same filters + same corpus = same key = the stored answer: consistent answers,
-// no model call, no cost. A new crawl changes the corpus date, so every key changes with it.
+// no model call, no cost. A new crawl (corpus date) or a new answer logic (PIPELINE_VERSION) changes every key.
+
+/** Bump when the answer logic changes, so answers built by the old logic are not served again. */
+const PIPELINE_VERSION = 6
 
 export function cacheKey(input: AskInput): string {
   const q = fold(input.question).replace(/[^\p{L}\p{N} ]/gu, ' ').replace(/\s+/g, ' ').trim()
-  const parts = [q, input.lang, input.role, input.category ?? '', input.district ?? '', input.publishedFrom ?? '', input.publishedTo ?? '', store.corpus.builtAt]
+  const parts = [q, input.lang, input.role, input.category ?? '', input.district ?? '', input.publishedFrom ?? '', input.publishedTo ?? '', store.corpus.builtAt, PIPELINE_VERSION]
   return createHash('sha1').update(JSON.stringify(parts)).digest('hex')
 }
 

@@ -10,12 +10,18 @@ const EnvSchema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
   // Comma-separated list of allowed browser origins, e.g. "https://my-app.vercel.app"
   CORS_ORIGINS: z.string().default('http://localhost:5173'),
-  RATE_LIMIT_PER_MINUTE: z.coerce.number().int().positive().default(100),
-  // Optional AI: one key for any provider (Anthropic, OpenAI, Gemini, Grok, Groq, OpenRouter), recognised from its prefix.
-  // Without it the assistant answers with quotes picked directly from the corpus and a live site search.
+  // Per IP. Visitors on one network (a venue's Wi-Fi) share an IP, so these only stop bots, not people.
+  RATE_LIMIT_PER_MINUTE: z.coerce.number().int().positive().default(600),
+  // Questions per IP: new ones can cost model tokens. Tokens are also protected by the answer cache, and when they
+  // run out the answer still comes (exact quotes, no AI), so this is only a guard against scripted abuse.
+  ASK_RATE_LIMIT_PER_MINUTE: z.coerce.number().int().positive().default(60),
+  // Optional AI: a Groq API key. Without it the assistant answers with quotes picked directly from the corpus
+  // and a live site search.
   AI_API_KEY: z.string().optional(),
-  // Optional: pin a model; otherwise one is picked from the models the key can use.
-  AI_MODEL: z.string().optional(),
+  // Models to use, best first: when one reaches its daily free-tier limit, the next one answers.
+  AI_MODELS: z.string().default('openai/gpt-oss-120b,openai/gpt-oss-20b,qwen/qwen3.8-27b'),
+  // Any OpenAI-compatible chat-completions API; Groq by default.
+  AI_BASE_URL: z.string().url().default('https://api.groq.com/openai/v1'),
   LLM_TIMEOUT_MS: z.coerce.number().int().positive().default(25000),
   DATA_DIR: z.string().default('data'),
   // Where usage logs are written (a volume in production). Defaults to DATA_DIR/runtime.

@@ -7,6 +7,7 @@ import { AnswerView } from '@/features/assistant/AnswerView'
 import { CATEGORIES, useAsk, useExamples, useSuggest, type Category } from '@/features/assistant/api'
 import { ProgressList } from '@/features/assistant/ProgressList'
 import { MyPetitions } from '@/features/services/MyPetitions'
+import { ApiError } from '@/lib/api'
 import { DOMAIN_ICONS, Icon } from '@/lib/icons'
 import { usePrefs } from '@/lib/prefs'
 import { useDictation } from '@/lib/speech'
@@ -227,7 +228,7 @@ export function HomePage() {
           {filterActive && <p className="m-0 text-[13px] text-subtle">{periodLabel}</p>}
           <div aria-live="polite">
             {ask.isPending && <ProgressList progress={ask.progress} />}
-            {ask.isError && <p role="alert" className="m-0 text-bad">{t('answer.error')}</p>}
+            {ask.isError && <p role="alert" className="m-0 text-bad">{t(ask.error instanceof ApiError && ask.error.status === 429 ? 'answer.tooMany' : 'answer.error')}</p>}
             {ask.data?.correctedFrom && !ask.isPending && (
               <p className="m-0 mb-3 text-[15px]">
                 {t('answer.correctedTo')} <strong className="font-semibold">{ask.data.question}</strong>{' · '}

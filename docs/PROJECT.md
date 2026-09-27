@@ -19,6 +19,6 @@ Hard deadline: final upload Sun 27 Sep 2026 14:55. Optimise for a working, deplo
 - Verify with `pnpm check` before pushing.
 
 ## AI
-- The model (Grok or Groq, chosen by the `AI_API_KEY` prefix) is called only from the backend (`backend/src/assistant/llm.ts`); the key lives in `backend/.env` and is validated in `config.ts`.
+- The model (Groq; models in `AI_MODELS`, best first, the next one used when a model's daily quota runs out) is called only from the backend (`backend/src/assistant/llm.ts`); the key `AI_API_KEY` lives in `backend/.env` (Railway variables in production) and is validated in `config.ts`.
 - The model may only connect quotes. Every quote is checked against its source before it is shown, and sentences without a verified quote are dropped.
 - Without a key the no-AI path answers with quotes picked directly from the documents and a live search of the official sites. Keep that path working; it is also the fallback when the API fails.

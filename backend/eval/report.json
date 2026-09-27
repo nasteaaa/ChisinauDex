@@ -1,0 +1,442 @@
+{
+  "at": "2026-09-27T08:16:12.569Z",
+  "metrics": {
+    "Correct outcome": "85%",
+    "Citation accuracy (verbatim)": "100%",
+    "Citation relevance": "100%",
+    "Correct refusal rate": "100%",
+    "False refusal rate": "20%",
+    "Contradiction detection": "100%",
+    "False contradictions": "0%",
+    "Routing accuracy": "93%",
+    "Answer language": "100%",
+    "AI mode": "95%",
+    "Median latency": "6186 ms"
+  },
+  "results": [
+    {
+      "q": {
+        "id": "ro-01",
+        "lang": "ro",
+        "expect": "answer",
+        "question": "Cum înscriu copilul la grădiniță?",
+        "sources": [
+          "egradinita",
+          "dgets",
+          "dets-botanica",
+          "dets-buiucani",
+          "dets-centru",
+          "dets-riscani",
+          "help"
+        ],
+        "route": "egradinita"
+      },
+      "status": "ok",
+      "mode": "fallback",
+      "lang": "ro",
+      "route": "egradinita",
+      "latencyMs": 2422,
+      "quotes": 3,
+      "verbatim": 3,
+      "rightSource": true
+    },
+    {
+      "q": {
+        "id": "ro-02",
+        "lang": "ro",
+        "expect": "answer",
+        "question": "Cum obțin certificat de urbanism?",
+        "sources": [
+          "dgaurf",
+          "chisinau"
+        ],
+        "route": "dgaurf"
+      },
+      "status": "partial",
+      "mode": "ai",
+      "lang": "ro",
+      "route": "dgaurf",
+      "latencyMs": 847,
+      "quotes": 1,
+      "verbatim": 1,
+      "rightSource": true
+    },
+    {
+      "q": {
+        "id": "ro-03",
+        "lang": "ro",
+        "expect": "answer",
+        "question": "Care este tariful la apă pentru un metru cub?",
+        "sources": [
+          "acc"
+        ],
+        "route": "acc"
+      },
+      "status": "ok",
+      "mode": "ai",
+      "lang": "ro",
+      "route": "acc",
+      "latencyMs": 708,
+      "quotes": 1,
+      "verbatim": 1,
+      "rightSource": true
+    },
+    {
+      "q": {
+        "id": "ro-04",
+        "lang": "ro",
+        "expect": "answer",
+        "question": "Până când se depun cererile de înscriere în clasa I?",
+        "sources": [
+          "escoala",
+          "dgets",
+          "dets-botanica",
+          "dets-buiucani",
+          "dets-centru",
+          "dets-riscani"
+        ],
+        "route": "escoala"
+      },
+      "status": "ok",
+      "mode": "ai",
+      "lang": "ro",
+      "route": "escoala",
+      "latencyMs": 1083,
+      "quotes": 3,
+      "verbatim": 3,
+      "rightSource": true
+    },
+    {
+      "q": {
+        "id": "ro-05",
+        "lang": "ro",
+        "expect": "answer",
+        "question": "Care este programul de lucru al Ghișeului Unic?",
+        "sources": [
+          "chisinau",
+          "pretura-botanica",
+          "pretura-buiucani",
+          "pretura-centru",
+          "pretura-ciocana",
+          "pretura-riscani",
+          "dgaurf"
+        ],
+        "route": "chisinau"
+      },
+      "status": "gap",
+      "mode": "ai",
+      "lang": "ro",
+      "route": "chisinau",
+      "latencyMs": 1449,
+      "quotes": 0,
+      "verbatim": 0,
+      "rightSource": null
+    },
+    {
+      "q": {
+        "id": "ro-06",
+        "lang": "ro",
+        "expect": "gap",
+        "question": "Cum înregistrez o firmă nouă la Agenția Servicii Publice?"
+      },
+      "status": "gap",
+      "mode": "ai",
+      "lang": "ro",
+      "route": "comert",
+      "latencyMs": 1050,
+      "quotes": 0,
+      "verbatim": 0,
+      "rightSource": null
+    },
+    {
+      "q": {
+        "id": "ro-07",
+        "lang": "ro",
+        "expect": "gap",
+        "question": "Ce acte trebuie pentru viza în Marea Britanie?"
+      },
+      "status": "gap",
+      "mode": "ai",
+      "lang": "ro",
+      "route": "comert",
+      "latencyMs": 876,
+      "quotes": 0,
+      "verbatim": 0,
+      "rightSource": null
+    },
+    {
+      "q": {
+        "id": "ro-08",
+        "lang": "ro",
+        "expect": "conflict",
+        "question": "Ce sumă poate primi un startup de la primărie?",
+        "sources": [
+          "startup",
+          "help",
+          "invest",
+          "proiecte"
+        ],
+        "route": "startup"
+      },
+      "status": "conflict",
+      "mode": "ai",
+      "lang": "ro",
+      "route": "startup",
+      "latencyMs": 7380,
+      "quotes": 2,
+      "verbatim": 2,
+      "rightSource": true
+    },
+    {
+      "q": {
+        "id": "ro-09",
+        "lang": "ro",
+        "expect": "conflict",
+        "question": "Cât costă biletul de troleibuz?",
+        "sources": [
+          "mobilitate",
+          "proiecte",
+          "rtec"
+        ],
+        "route": "mobilitate"
+      },
+      "status": "conflict",
+      "mode": "ai",
+      "lang": "ro",
+      "route": "mobilitate",
+      "latencyMs": 7063,
+      "quotes": 2,
+      "verbatim": 2,
+      "rightSource": true
+    },
+    {
+      "q": {
+        "id": "ro-10",
+        "lang": "ro",
+        "expect": "conflict",
+        "question": "Care este suma maximă a grantului pentru tineri și migranți?",
+        "sources": [
+          "startup",
+          "help",
+          "invest",
+          "proiecte"
+        ],
+        "route": "startup"
+      },
+      "status": "conflict",
+      "mode": "ai",
+      "lang": "ro",
+      "route": "startup",
+      "latencyMs": 8087,
+      "quotes": 2,
+      "verbatim": 2,
+      "rightSource": true
+    },
+    {
+      "q": {
+        "id": "ru-01",
+        "lang": "ru",
+        "expect": "answer",
+        "question": "Как записать ребенка в детский сад?",
+        "sources": [
+          "egradinita",
+          "dgets",
+          "dets-botanica",
+          "dets-buiucani",
+          "dets-centru",
+          "dets-riscani",
+          "help"
+        ],
+        "route": "egradinita"
+      },
+      "status": "partial",
+      "mode": "ai",
+      "lang": "ru",
+      "route": "egradinita",
+      "latencyMs": 15934,
+      "quotes": 1,
+      "verbatim": 1,
+      "rightSource": true
+    },
+    {
+      "q": {
+        "id": "ru-02",
+        "lang": "ru",
+        "expect": "answer",
+        "question": "Куда обращаться, если сломался лифт?",
+        "sources": [
+          "liftservice"
+        ],
+        "route": "liftservice"
+      },
+      "status": "gap",
+      "mode": "ai",
+      "lang": "ru",
+      "route": "liftservice",
+      "latencyMs": 7776,
+      "quotes": 0,
+      "verbatim": 0,
+      "rightSource": null
+    },
+    {
+      "q": {
+        "id": "ru-03",
+        "lang": "ru",
+        "expect": "answer",
+        "question": "Как получить сертификат урбанизма?",
+        "sources": [
+          "dgaurf",
+          "chisinau"
+        ],
+        "route": "dgaurf"
+      },
+      "status": "partial",
+      "mode": "ai",
+      "lang": "ru",
+      "route": "chisinau",
+      "latencyMs": 4114,
+      "quotes": 2,
+      "verbatim": 2,
+      "rightSource": true
+    },
+    {
+      "q": {
+        "id": "ru-04",
+        "lang": "ru",
+        "expect": "answer",
+        "question": "Где можно оплатить счёт за воду?",
+        "sources": [
+          "acc",
+          "infocom"
+        ],
+        "route": "acc"
+      },
+      "status": "gap",
+      "mode": "ai",
+      "lang": "ru",
+      "route": "acc",
+      "latencyMs": 8859,
+      "quotes": 0,
+      "verbatim": 0,
+      "rightSource": null
+    },
+    {
+      "q": {
+        "id": "ru-05",
+        "lang": "ru",
+        "expect": "answer",
+        "question": "Как подать петицию в примэрию?",
+        "sources": [
+          "chisinau",
+          "pretura-botanica",
+          "pretura-buiucani",
+          "pretura-centru",
+          "pretura-ciocana",
+          "pretura-riscani"
+        ],
+        "route": "chisinau"
+      },
+      "status": "ok",
+      "mode": "ai",
+      "lang": "ru",
+      "route": "chisinau",
+      "latencyMs": 5329,
+      "quotes": 6,
+      "verbatim": 6,
+      "rightSource": true
+    },
+    {
+      "q": {
+        "id": "ru-06",
+        "lang": "ru",
+        "expect": "gap",
+        "question": "Как оформить пенсию по возрасту?"
+      },
+      "status": "gap",
+      "mode": "ai",
+      "lang": "ru",
+      "route": "chisinau",
+      "latencyMs": 9504,
+      "quotes": 0,
+      "verbatim": 0,
+      "rightSource": null
+    },
+    {
+      "q": {
+        "id": "ru-07",
+        "lang": "ru",
+        "expect": "gap",
+        "question": "Сколько стоит квартира в Кишинёве?"
+      },
+      "status": "gap",
+      "mode": "ai",
+      "lang": "ru",
+      "route": "chisinau",
+      "latencyMs": 11103,
+      "quotes": 0,
+      "verbatim": 0,
+      "rightSource": null
+    },
+    {
+      "q": {
+        "id": "ru-08",
+        "lang": "ru",
+        "expect": "gap",
+        "question": "Какие документы нужны для визы в Великобританию?"
+      },
+      "status": "gap",
+      "mode": "ai",
+      "lang": "ru",
+      "route": "egradinita",
+      "latencyMs": 4824,
+      "quotes": 0,
+      "verbatim": 0,
+      "rightSource": null
+    },
+    {
+      "q": {
+        "id": "ru-09",
+        "lang": "ru",
+        "expect": "conflict",
+        "question": "Какой грант можно получить для стартапа?",
+        "sources": [
+          "startup",
+          "help",
+          "invest",
+          "proiecte"
+        ],
+        "route": "startup"
+      },
+      "status": "conflict",
+      "mode": "ai",
+      "lang": "ru",
+      "route": "startup",
+      "latencyMs": 6186,
+      "quotes": 2,
+      "verbatim": 2,
+      "rightSource": true
+    },
+    {
+      "q": {
+        "id": "ru-10",
+        "lang": "ru",
+        "expect": "conflict",
+        "question": "Сколько стоит билет на троллейбус?",
+        "sources": [
+          "mobilitate",
+          "proiecte",
+          "rtec"
+        ],
+        "route": "mobilitate"
+      },
+      "status": "conflict",
+      "mode": "ai",
+      "lang": "ru",
+      "route": "mobilitate",
+      "latencyMs": 21600,
+      "quotes": 2,
+      "verbatim": 2,
+      "rightSource": true
+    }
+  ]
+}

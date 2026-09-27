@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto'
 import { sourceById } from '../corpus/sources'
-import { vectorSearch } from '../corpus/vectors'
+import { vectorIndex, vectorSearch } from '../corpus/vectors'
 import { cachedAnswer, cacheKey, storeAnswer } from './cache'
 import { correctQuestion } from '../corpus/spell'
 import { chunk, store, type Hit, type Passage } from '../corpus/store'
@@ -27,6 +27,8 @@ export interface AskInput {
   publishedTo?: string
   /** Search the question as typed, without fixing typos. */
   exact?: boolean
+  /** Evaluation run (scripts/eval.ts): no answer cache, no usage logs. Not settable over HTTP. */
+  evaluation?: boolean
 }
 
 /** Real pipeline stages, streamed to the UI while the answer is being built. */
@@ -240,7 +242,8 @@ You answer ONLY from the numbered passages you are given. They were scraped from
 
 Rules:
 - Every sentence you write must cite at least one passage, with a "quote" copied character-for-character from that passage (15–300 characters, original language, no ellipses, no edits). Sentences whose quote is not verbatim will be deleted.
-- Write sentences in plain, short language in the user's language. Quotes stay in the passage's original language; if the user's language differs, add "tr": your translation of the quote.
+- "text" is YOUR summary in your own words, in the user's language: answer the question directly in 1–3 short sentences, the key fact first (the amount, the date, the place, what to do). Do NOT copy or paraphrase the whole quote into "text": the quote is shown separately as evidence.
+- Quotes stay in the passage's original language; if the user's language differs, add "tr": your translation of the quote.
 - If the passages do not answer the question: status "gap", no sentences, and "missing": one sentence saying what information is absent.
 - If they answer only part of it: status "partial" and "missing" says what is absent.
 - If two passages from DIFFERENT documents state incompatible facts about the same thing (amounts, dates, deadlines, hours, phone numbers, rules): status "conflict", fill "conflict" with both sides and their values, and do NOT choose between them. Mention in a sentence that the documents disagree.
@@ -268,7 +271,7 @@ async function aiAnswer(input: AskInput, hits: Hit[], progress: OnProgress) {
   }).join('\n\n')
   const r = await completeJson<LlmAnswer>({
     system: SYSTEM,
-    maxTokens: 1800,
+    maxTokens: 1200,
     user: `User role: ${input.role}. User language: ${LANG_NAME[input.lang]}.\nQuestion: ${input.question}\n\nPassages:\n${labeled}`
   })
 
@@ -332,7 +335,17 @@ function coverage(sentence: string, qOrig: Set<string>, qBridge: Set<string>): n
 function readable(s: string): boolean {
   const letters = s.replace(/[^\p{L}]/gu, '')
   const upper = s.replace(/[^\p{Lu}]/gu, '')
-  return s.length >= 30 && s.length <= 450 && letters.length > s.length * 0.55 && upper.length < letters.length * 0.4 && s.split(/\s+/).length >= 5
+  // Social-media footers ("#DGETS #PrimăriaChișinău @urmăritori …") are not sentences.
+  const tags = (s.match(/[#@]\p{L}/gu) ?? []).length
+  return s.length >= 30 && s.length <= 450 && letters.length > s.length * 0.55 && upper.length < letters.length * 0.4 && s.split(/\s+/).length >= 5 && tags < 2
+}
+
+/** Older documents rank lower in the no-AI answer: a 2022 admission calendar must not beat the 2026 one. */
+function recency(d: Doc): number {
+  const date = d.updatedAt ?? d.publishedAt
+  if (!date) return 0.85
+  const years = (Date.now() - Date.parse(date)) / 3.15e10
+  return years < 1 ? 1 : years < 2 ? 0.8 : 0.6
 }
 
 function fallbackAnswer(input: AskInput, hits: Hit[], progress: OnProgress) {
@@ -346,7 +359,7 @@ function fallbackAnswer(input: AskInput, hits: Hit[], progress: OnProgress) {
       const cov = coverage(sentence, qOrig, qBridge)
       if (!best || cov > best.cov) best = { sentence, cov }
     }
-    if (best) candidates.push({ hit, ...best, rank: best.cov * (1 + Math.log1p(hit.score)) })
+    if (best) candidates.push({ hit, ...best, rank: best.cov * (1 + Math.log1p(hit.score)) * recency(hit.passage.doc) })
   }
   candidates.sort((a, b) => b.rank - a.rank)
 
@@ -433,14 +446,33 @@ function relatedQuestions(input: AskInput, topSourceId?: string): string[] {
 
 // ------------------------------------------------------------------ entry
 
-export async function ask(asked: AskInput, progress: OnProgress = () => {}): Promise<Answer> {
+/** Answers being built right now, by question: identical questions asked at the same moment share one model call. */
+const inflight = new Map<string, Promise<Answer>>()
+
+export function ask(asked: AskInput, progress: OnProgress = () => {}): Promise<Answer> {
+  if (asked.evaluation) return buildAnswer(asked, progress)
+  const key = cacheKey(asked)
+  const running = inflight.get(key)
+  if (running) {
+    return running.then((a) => {
+      const answer: Answer = { ...a, id: randomUUID(), cached: true }
+      logQuestion(answer, { ...asked, question: a.question, lang: a.lang })
+      return answer
+    })
+  }
+  const build = buildAnswer(asked, progress).finally(() => inflight.delete(key))
+  inflight.set(key, build)
+  return build
+}
+
+async function buildAnswer(asked: AskInput, progress: OnProgress): Promise<Answer> {
   const t0 = Date.now()
   const corrected = asked.exact ? undefined : correctQuestion(asked.question)
   const question = corrected ?? asked.question
   // Answer in the language the question is written in; the interface language only breaks ties.
   const input = { ...asked, question, lang: questionLang(question) ?? asked.lang }
   const key = cacheKey(input)
-  const cached = await cachedAnswer(key)
+  const cached = asked.evaluation ? undefined : await cachedAnswer(key)
   if (cached) {
     const answer: Answer = { ...cached, id: randomUUID(), cached: true, latencyMs: Date.now() - t0, ...(corrected ? { correctedFrom: asked.question } : { correctedFrom: undefined }) }
     logQuestion(answer, input)
@@ -453,8 +485,13 @@ export async function ask(asked: AskInput, progress: OnProgress = () => {}): Pro
 
   if (llmEnabled()) {
     try {
-      progress({ step: 'expand' })
-      query = await expandQuery(input.question)
+      // Romanian questions go straight to hybrid search (the vector index covers paraphrases), which halves the
+      // model calls. Russian/English ones are first rewritten into Romanian keywords: the documents are Romanian,
+      // and vectors alone rank the right page too low (checked on "Как получить сертификат урбанизма?").
+      if (!vectorIndex.ready || input.lang !== 'ro') {
+        progress({ step: 'expand' })
+        query = await expandQuery(input.question)
+      }
       retrieved = await retrieve(input, query, false, progress, AI_CHUNKS)
       progress({ step: 'compose', mode: 'ai' })
       result = await aiAnswer(input, retrieved.hits, progress)
@@ -476,6 +513,8 @@ export async function ask(asked: AskInput, progress: OnProgress = () => {}): Pro
     result = fallbackAnswer(input, retrieved.hits, progress)
     mode = 'fallback'
   }
+
+  attachKnownConflict(input, retrieved.hits, result)
 
   // Relevance is computed the same way in both modes, so answers are comparable.
   const qOrig = new Set(tokens(input.question))
@@ -509,6 +548,7 @@ export async function ask(asked: AskInput, progress: OnProgress = () => {}): Pro
     latencyMs: Date.now() - t0
   }
 
+  if (asked.evaluation) return answer
   let conflictId: string | undefined
   if (answer.conflict) {
     const [a, b] = answer.conflict.sides.map((s) => answer.sources[s.n - 1])
@@ -528,6 +568,36 @@ export async function ask(asked: AskInput, progress: OnProgress = () => {}): Pro
   // Degraded answers (AI configured but failed) are not cached, so the next ask gets the full answer.
   if (mode === 'ai' || !llmEnabled()) void storeAnswer(key, answer)
   return answer
+}
+
+/**
+ * A contradiction already recorded (by the nightly crawl scan or an earlier answer) between documents this
+ * answer draws on is shown even when the model did not notice it in this answer. Attached only when one of the
+ * two documents was retrieved for this question and the question is about the contradiction's subject.
+ */
+function attachKnownConflict(input: AskInput, hits: Hit[], result: Pick<Answer, 'status' | 'sources' | 'conflict'>) {
+  if (result.conflict) return
+  const retrieved = new Set([...hits.map((h) => h.passage.doc.id), ...result.sources.map((s) => s.docId)])
+  const q = new Set(tokens(`${input.question} ${bridgeToRomanian(input.question)}`))
+  const need = q.size <= 2 ? 1 : 2
+  for (const c of [...store.conflicts, ...runtime.conflicts.items]) {
+    if (!retrieved.has(c.a.docId) && !retrieved.has(c.b.docId)) continue
+    const shared = tokens(`${c.topic} ${c.a.quote} ${c.b.quote}`).filter((t, i, all) => q.has(t) && all.indexOf(t) === i)
+    if (shared.length < need) continue
+    const passageOf = (docId: string, quote: string) => store.passages.find((p) => p.doc.id === docId && containsQuote(p.text, quote))
+    const pa = passageOf(c.a.docId, c.a.quote)
+    const pb = passageOf(c.b.docId, c.b.quote)
+    if (!pa || !pb) continue // a side no longer in the corpus, or its quote changed: not shown
+    const sideOf = (p: Passage, quote: string) => {
+      const existing = result.sources.find((s) => s.passageId === p.id)
+      if (existing) return existing.n
+      result.sources.push(toSource(p, result.sources.length + 1, quote))
+      return result.sources.length
+    }
+    result.conflict = { topic: c.topic, sides: [{ n: sideOf(pa, c.a.quote), value: c.a.value }, { n: sideOf(pb, c.b.quote), value: c.b.value }] }
+    result.status = 'conflict'
+    return
+  }
 }
 
 function logQuestion(answer: Answer, input: AskInput, conflictId?: string) {
