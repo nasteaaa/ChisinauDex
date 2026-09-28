@@ -1,21 +1,5 @@
 [
   {
-    "id": "6d3f847e2f94",
-    "topic": "Granturi startup pentru tineri",
-    "a": {
-      "docId": "73e031fe32da",
-      "quote": "Tinerii antreprenori pot solicita granturi de până la 200 de mii de lei",
-      "value": "200.000 lei"
-    },
-    "b": {
-      "docId": "02126d200356",
-      "quote": "Grantul poate acoperi până la 70% din valoarea proiectului, până la maximum 250.000 de lei",
-      "value": "250.000 lei"
-    },
-    "detectedAt": "2026-09-27T04:51:07.676Z",
-    "origin": "index"
-  },
-  {
     "id": "7eab7e1b19ca",
     "topic": "Granturi startup pentru tineri",
     "a": {
@@ -30,21 +14,5 @@
     },
     "detectedAt": "2026-09-27T04:51:07.676Z",
     "origin": "index"
-  },
-  {
-    "id": "0c576403ddcc~34a7ce71debe",
-    "topic": "Preț bilet troleibuz",
-    "a": {
-      "docId": "0c576403ddcc",
-      "quote": "- Bilet\n1 călătorie\n- 7LEI",
-      "value": "7 lei"
-    },
-    "b": {
-      "docId": "34a7ce71debe",
-      "quote": "Din 1 iulie 2022, prețul unui bilet de călătorie cu troleibuzul sau autobuzul în capitală, inclusiv în suburbii, constituie șase lei.",
-      "value": "6 lei"
-    },
-    "detectedAt": "2026-09-26T19:22:29.285Z",
-    "origin": "answer"
   }
 ]
