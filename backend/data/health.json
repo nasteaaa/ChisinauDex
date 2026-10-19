@@ -1,9 +1,9 @@
 {
-  "checkedAt": "2026-10-18T05:22:59.594Z",
+  "checkedAt": "2026-10-19T05:40:38.632Z",
   "sources": [
     {
       "sourceId": "chisinau",
-      "checkedAt": "2026-10-18T05:16:43.976Z",
+      "checkedAt": "2026-10-19T05:29:39.605Z",
       "ok": true,
       "tls": "ok",
       "docCount": 248,
@@ -20,24 +20,24 @@
           "foundOn": "https://www.chisinau.md/ro/proiectul-regulamentului-privind-raporturile-juridice-de-superficie-si-locatiune-20820.html"
         },
         {
-          "url": "https://www.chisinau.md/doct.php?l=ro&id=30435&idc=408&t=/Consiliul/Activitatea-Consiliului/Decizii-CMC/Decizia-nr-126-din-23-iulie-2020-Cu-privire-la-aprobarea-Regulamentului-indicatorilor-de-performanta-pentru-serviciul-public-de-alimentare-cu-apa-i-canalizare-din-municipiul-Chiinau",
+          "url": "https://www.chisinau.md/doct.php?l=ro&idc=408&id=30436",
           "status": 404,
           "foundOn": "https://www.chisinau.md/ro/sa-apa-canal-chisinau-20361.html"
         },
         {
-          "url": "https://www.chisinau.md/doct.php?l=ro&idc=408&id=30436",
+          "url": "https://www.chisinau.md/doct.php?l=ro&id=30435&idc=408&t=/Consiliul/Activitatea-Consiliului/Decizii-CMC/Decizia-nr-126-din-23-iulie-2020-Cu-privire-la-aprobarea-Regulamentului-indicatorilor-de-performanta-pentru-serviciul-public-de-alimentare-cu-apa-i-canalizare-din-municipiul-Chiinau",
           "status": 404,
           "foundOn": "https://www.chisinau.md/ro/sa-apa-canal-chisinau-20361.html"
         }
       ],
       "wp": false,
       "status": 200,
-      "ms": 2656,
+      "ms": 2888,
       "latestContentAt": "2026-10-13T00:00:00.000Z"
     },
     {
       "sourceId": "suburbii",
-      "checkedAt": "2026-10-18T05:16:43.982Z",
+      "checkedAt": "2026-10-19T05:29:39.610Z",
       "ok": true,
       "tls": "ok",
       "docCount": 73,
@@ -45,12 +45,12 @@
       "brokenLinks": [],
       "wp": true,
       "status": 200,
-      "ms": 4495,
+      "ms": 4355,
       "latestContentAt": "2026-10-16T15:10:09.000Z"
     },
     {
       "sourceId": "proiecte",
-      "checkedAt": "2026-10-18T05:16:43.983Z",
+      "checkedAt": "2026-10-19T05:29:39.611Z",
       "ok": true,
       "tls": "ok",
       "docCount": 29,
@@ -58,12 +58,12 @@
       "brokenLinks": [],
       "wp": false,
       "status": 200,
-      "ms": 2376,
+      "ms": 1793,
       "contactUrl": "https://proiecte.chisinau.md/ro/contact"
     },
     {
       "sourceId": "mobilitate",
-      "checkedAt": "2026-10-18T05:16:43.984Z",
+      "checkedAt": "2026-10-19T05:29:39.611Z",
       "ok": true,
       "tls": "ok",
       "docCount": 120,
@@ -71,13 +71,13 @@
       "brokenLinks": [],
       "wp": true,
       "status": 200,
-      "ms": 2150,
+      "ms": 1936,
       "contactUrl": "https://mobilitatechisinau.md/?page_id=6755",
       "latestContentAt": "2026-10-15T22:12:02.000Z"
     },
     {
       "sourceId": "rtec",
-      "checkedAt": "2026-10-18T05:16:43.984Z",
+      "checkedAt": "2026-10-19T05:29:39.612Z",
       "ok": true,
       "tls": "ok",
       "docCount": 76,
@@ -85,13 +85,13 @@
       "brokenLinks": [],
       "wp": true,
       "status": 200,
-      "ms": 2775,
+      "ms": 2410,
       "contactUrl": "https://rtec.md/contact",
       "latestContentAt": "2026-10-12T11:47:29.000Z"
     },
     {
       "sourceId": "autourban",
-      "checkedAt": "2026-10-18T05:16:43.985Z",
+      "checkedAt": "2026-10-19T05:29:39.612Z",
       "ok": true,
       "tls": "ok",
       "docCount": 36,
@@ -105,13 +105,13 @@
       ],
       "wp": false,
       "status": 200,
-      "ms": 2204,
+      "ms": 1652,
       "contactUrl": "https://autourban.md/ro/contacte",
       "latestContentAt": "2026-10-16"
     },
     {
       "sourceId": "exdrupo",
-      "checkedAt": "2026-10-18T05:16:43.985Z",
+      "checkedAt": "2026-10-19T05:29:39.613Z",
       "ok": true,
       "tls": "ok",
       "docCount": 63,
@@ -125,13 +125,13 @@
       ],
       "wp": true,
       "status": 200,
-      "ms": 3116,
+      "ms": 1996,
       "contactUrl": "https://exdrupo.md/contacte",
       "latestContentAt": "2026-10-16T07:56:06.000Z"
     },
     {
       "sourceId": "dgaurf",
-      "checkedAt": "2026-10-18T05:16:43.986Z",
+      "checkedAt": "2026-10-19T05:29:39.613Z",
       "ok": true,
       "tls": "ok",
       "docCount": 42,
@@ -150,13 +150,13 @@
       ],
       "wp": false,
       "status": 200,
-      "ms": 3081,
+      "ms": 3224,
       "contactUrl": "https://dgaurf.md/ro/contact",
       "latestContentAt": "2024-02-15"
     },
     {
       "sourceId": "dglca",
-      "checkedAt": "2026-10-18T05:17:03.530Z",
+      "checkedAt": "2026-10-19T05:30:01.469Z",
       "ok": true,
       "tls": "ok",
       "docCount": 24,
@@ -164,13 +164,13 @@
       "brokenLinks": [],
       "wp": false,
       "status": 200,
-      "ms": 1665,
+      "ms": 1631,
       "contactUrl": "https://dglca.md/contact",
       "latestContentAt": "2026-09-16T07:50:41.000Z"
     },
     {
       "sourceId": "autosalubritate",
-      "checkedAt": "2026-10-18T05:17:17.695Z",
+      "checkedAt": "2026-10-19T05:30:12.602Z",
       "ok": true,
       "tls": "ok",
       "docCount": 73,
@@ -184,13 +184,13 @@
       ],
       "wp": true,
       "status": 200,
-      "ms": 745,
+      "ms": 951,
       "contactUrl": "https://autosalubritate.md/informatie-de-contact",
       "latestContentAt": "2026-10-16T15:30:02.000Z"
     },
     {
       "sourceId": "acc",
-      "checkedAt": "2026-10-18T05:17:18.647Z",
+      "checkedAt": "2026-10-19T05:30:16.097Z",
       "ok": true,
       "tls": "ok",
       "docCount": 27,
@@ -259,13 +259,13 @@
       ],
       "wp": false,
       "status": 200,
-      "ms": 1270,
+      "ms": 2681,
       "contactUrl": "https://www.acc.md/contacts",
       "latestContentAt": "2026-08-06"
     },
     {
       "sourceId": "agsv",
-      "checkedAt": "2026-10-18T05:17:21.022Z",
+      "checkedAt": "2026-10-19T05:30:19.891Z",
       "ok": true,
       "tls": "ok",
       "docCount": 85,
@@ -273,13 +273,13 @@
       "brokenLinks": [],
       "wp": true,
       "status": 200,
-      "ms": 1462,
+      "ms": 2028,
       "contactUrl": "https://agsv.md/diagrama-defrisare-curatare-a-arborilor-2",
       "latestContentAt": "2026-10-16T10:28:23.000Z"
     },
     {
       "sourceId": "dgets",
-      "checkedAt": "2026-10-18T05:17:22.404Z",
+      "checkedAt": "2026-10-19T05:30:22.559Z",
       "ok": true,
       "tls": "ok",
       "docCount": 37,
@@ -293,13 +293,13 @@
       ],
       "wp": false,
       "status": 200,
-      "ms": 1241,
+      "ms": 1484,
       "contactUrl": "https://chisinauedu.dgets.md/contact-us",
       "latestContentAt": "2026-10-16"
     },
     {
       "sourceId": "dets-riscani",
-      "checkedAt": "2026-10-18T05:17:33.514Z",
+      "checkedAt": "2026-10-19T05:30:23.570Z",
       "ok": true,
       "tls": "ok",
       "docCount": 158,
@@ -307,27 +307,27 @@
       "brokenLinks": [],
       "wp": true,
       "status": 200,
-      "ms": 1365,
+      "ms": 940,
       "contactUrl": "https://detsriscani.md/contacte",
-      "latestContentAt": "2026-10-16T13:27:18.000Z"
+      "latestContentAt": "2026-10-19T08:06:37.000Z"
     },
     {
       "sourceId": "dets-ciocana",
-      "checkedAt": "2026-10-18T05:17:36.113Z",
+      "checkedAt": "2026-10-19T05:30:27.983Z",
       "ok": true,
       "tls": "ok",
-      "docCount": 158,
+      "docCount": 0,
       "quarantined": 0,
       "brokenLinks": [],
-      "wp": true,
+      "wp": false,
       "status": 200,
-      "ms": 2351,
-      "contactUrl": "https://detsciocana.educ.md/contacte",
-      "latestContentAt": "2026-10-09T14:44:05.000Z"
+      "ms": 840,
+      "blocked": true,
+      "error": "reachable, but no indexable text (JavaScript-only site)"
     },
     {
       "sourceId": "dets-centru",
-      "checkedAt": "2026-10-18T05:17:37.847Z",
+      "checkedAt": "2026-10-19T05:30:29.879Z",
       "ok": true,
       "tls": "ok",
       "docCount": 157,
@@ -335,13 +335,13 @@
       "brokenLinks": [],
       "wp": true,
       "status": 200,
-      "ms": 2541,
+      "ms": 1730,
       "contactUrl": "https://detscentru.md/contacte",
       "latestContentAt": "2026-10-16T09:54:40.000Z"
     },
     {
       "sourceId": "dets-buiucani",
-      "checkedAt": "2026-10-18T05:17:41.479Z",
+      "checkedAt": "2026-10-19T05:30:36.977Z",
       "ok": true,
       "tls": "ok",
       "docCount": 93,
@@ -349,13 +349,13 @@
       "brokenLinks": [],
       "wp": true,
       "status": 200,
-      "ms": 1207,
+      "ms": 1399,
       "contactUrl": "https://buiucanidets.md/contacte",
       "latestContentAt": "2026-10-10T19:08:03.000Z"
     },
     {
       "sourceId": "dets-botanica",
-      "checkedAt": "2026-10-18T05:17:54.023Z",
+      "checkedAt": "2026-10-19T05:30:38.891Z",
       "ok": true,
       "tls": "ok",
       "docCount": 106,
@@ -363,13 +363,13 @@
       "brokenLinks": [],
       "wp": true,
       "status": 200,
-      "ms": 1282,
+      "ms": 1624,
       "contactUrl": "https://detsbotanica.md/contacte",
       "latestContentAt": "2026-10-17T17:51:05.000Z"
     },
     {
       "sourceId": "educatieonline",
-      "checkedAt": "2026-10-18T05:18:00.227Z",
+      "checkedAt": "2026-10-19T05:30:51.321Z",
       "ok": true,
       "tls": "ok",
       "docCount": 26,
@@ -377,11 +377,11 @@
       "brokenLinks": [],
       "wp": false,
       "status": 200,
-      "ms": 1024
+      "ms": 1865
     },
     {
       "sourceId": "extrascolar",
-      "checkedAt": "2026-10-18T05:18:02.323Z",
+      "checkedAt": "2026-10-19T05:31:02.683Z",
       "ok": true,
       "tls": "ok",
       "docCount": 11,
@@ -395,12 +395,12 @@
       ],
       "wp": false,
       "status": 200,
-      "ms": 911,
+      "ms": 1435,
       "contactUrl": "https://extrascolar.md/contacts"
     },
     {
       "sourceId": "egradinita",
-      "checkedAt": "2026-10-18T05:18:05.005Z",
+      "checkedAt": "2026-10-19T05:31:05.263Z",
       "ok": true,
       "tls": "ok",
       "docCount": 142,
@@ -408,11 +408,11 @@
       "brokenLinks": [],
       "wp": false,
       "status": 200,
-      "ms": 1240
+      "ms": 1384
     },
     {
       "sourceId": "escoala",
-      "checkedAt": "2026-10-18T05:18:07.607Z",
+      "checkedAt": "2026-10-19T05:31:05.316Z",
       "ok": true,
       "tls": "ok",
       "docCount": 12,
@@ -420,11 +420,11 @@
       "brokenLinks": [],
       "wp": false,
       "status": 200,
-      "ms": 1019
+      "ms": 1609
     },
     {
       "sourceId": "dgams",
-      "checkedAt": "2026-10-18T05:18:08.628Z",
+      "checkedAt": "2026-10-19T05:31:06.301Z",
       "ok": true,
       "tls": "ok",
       "docCount": 126,
@@ -432,13 +432,13 @@
       "brokenLinks": [],
       "wp": true,
       "status": 200,
-      "ms": 1917,
+      "ms": 2260,
       "contactUrl": "https://dgams.md/contacte",
       "latestContentAt": "2026-09-04T00:04:08.000Z"
     },
     {
       "sourceId": "help",
-      "checkedAt": "2026-10-18T05:18:16.861Z",
+      "checkedAt": "2026-10-19T05:31:06.688Z",
       "ok": true,
       "tls": "ok",
       "docCount": 138,
@@ -446,33 +446,27 @@
       "brokenLinks": [],
       "wp": true,
       "status": 200,
-      "ms": 2536,
+      "ms": 2765,
       "contactUrl": "https://help.chisinau.md/contacte",
       "latestContentAt": "2026-10-12T14:19:48.000Z"
     },
     {
       "sourceId": "amt-botanica",
-      "checkedAt": "2026-10-18T05:18:17.301Z",
+      "checkedAt": "2026-10-19T05:31:13.286Z",
       "ok": true,
       "tls": "ok",
       "docCount": 86,
       "quarantined": 1,
-      "brokenLinks": [
-        {
-          "url": "https://amt-botanica.md/subdiviziuni/csf-dalila",
-          "status": "timeout",
-          "foundOn": "https://amt-botanica.md/"
-        }
-      ],
+      "brokenLinks": [],
       "wp": true,
       "status": 200,
-      "ms": 3916,
+      "ms": 1753,
       "contactUrl": "https://amt-botanica.md/contacte",
       "latestContentAt": "2026-10-13T13:51:27.000Z"
     },
     {
       "sourceId": "amt-centru",
-      "checkedAt": "2026-10-18T05:18:18.853Z",
+      "checkedAt": "2026-10-19T05:31:14.367Z",
       "ok": true,
       "tls": "ok",
       "docCount": 145,
@@ -480,27 +474,24 @@
       "brokenLinks": [],
       "wp": true,
       "status": 200,
-      "ms": 1183,
+      "ms": 1066,
       "contactUrl": "https://amt-centru.md/contacte",
       "latestContentAt": "2026-10-08T12:45:25.000Z"
     },
     {
       "sourceId": "amt-buiucani",
-      "checkedAt": "2026-10-18T05:18:21.467Z",
-      "ok": true,
+      "checkedAt": "2026-10-19T05:31:18.295Z",
+      "ok": false,
       "tls": "ok",
-      "docCount": 118,
+      "docCount": 0,
       "quarantined": 0,
       "brokenLinks": [],
-      "wp": true,
-      "status": 200,
-      "ms": 1432,
-      "contactUrl": "https://amtbuiucani.md/contacte",
-      "latestContentAt": "2026-09-23T06:19:56.000Z"
+      "wp": false,
+      "error": "timeout"
     },
     {
       "sourceId": "amt-ciocana",
-      "checkedAt": "2026-10-18T05:18:23.050Z",
+      "checkedAt": "2026-10-19T05:31:23.219Z",
       "ok": true,
       "tls": "ok",
       "docCount": 34,
@@ -514,13 +505,13 @@
       ],
       "wp": false,
       "status": 200,
-      "ms": 996,
+      "ms": 1167,
       "contactUrl": "https://amt-ciocana.md/contacte.html",
       "latestContentAt": "2026-03-04"
     },
     {
       "sourceId": "amt-riscani",
-      "checkedAt": "2026-10-18T05:18:26.389Z",
+      "checkedAt": "2026-10-19T05:31:37.063Z",
       "ok": true,
       "tls": "invalid",
       "docCount": 36,
@@ -528,12 +519,12 @@
       "brokenLinks": [],
       "wp": false,
       "status": 200,
-      "ms": 1007,
+      "ms": 1069,
       "latestContentAt": "2023-06-14"
     },
     {
       "sourceId": "pretura-botanica",
-      "checkedAt": "2026-10-18T05:18:40.931Z",
+      "checkedAt": "2026-10-19T05:31:37.481Z",
       "ok": true,
       "tls": "ok",
       "docCount": 24,
@@ -541,12 +532,12 @@
       "brokenLinks": [],
       "wp": false,
       "status": 200,
-      "ms": 2862,
+      "ms": 1198,
       "latestContentAt": "2026-10-12"
     },
     {
       "sourceId": "pretura-centru",
-      "checkedAt": "2026-10-18T05:18:51.678Z",
+      "checkedAt": "2026-10-19T05:31:44.307Z",
       "ok": true,
       "tls": "ok",
       "docCount": 99,
@@ -560,13 +551,13 @@
       ],
       "wp": true,
       "status": 200,
-      "ms": 1891,
+      "ms": 910,
       "contactUrl": "https://chisinaucentru.md/contacte",
       "latestContentAt": "2026-10-12T16:21:25.000Z"
     },
     {
       "sourceId": "pretura-ciocana",
-      "checkedAt": "2026-10-18T05:18:54.266Z",
+      "checkedAt": "2026-10-19T05:31:51.113Z",
       "ok": true,
       "tls": "ok",
       "docCount": 27,
@@ -574,13 +565,13 @@
       "brokenLinks": [],
       "wp": false,
       "status": 200,
-      "ms": 1020,
+      "ms": 1545,
       "contactUrl": "https://ciocana.md/contacte",
       "latestContentAt": "2026-09-22T08:20:00.000Z"
     },
     {
       "sourceId": "pretura-riscani",
-      "checkedAt": "2026-10-18T05:18:54.503Z",
+      "checkedAt": "2026-10-19T05:31:56.198Z",
       "ok": true,
       "tls": "ok",
       "docCount": 21,
@@ -602,6 +593,11 @@
           "foundOn": "https://rascani.md/"
         },
         {
+          "url": "https://rascani.md/adresa-str-kiev-3-tel-373-22-44-10-98-mail-preturariscanigmailcom",
+          "status": 404,
+          "foundOn": "https://rascani.md/"
+        },
+        {
           "url": "https://rascani.md/harta-sectorului-riscani",
           "status": 404,
           "foundOn": "https://rascani.md/"
@@ -612,7 +608,7 @@
           "foundOn": "https://rascani.md/"
         },
         {
-          "url": "https://rascani.md/adresa-str-kiev-3-tel-373-22-44-10-98-mail-preturariscanigmailcom",
+          "url": "https://rascani.md/informatii-publice",
           "status": 404,
           "foundOn": "https://rascani.md/"
         },
@@ -622,22 +618,7 @@
           "foundOn": "https://rascani.md/"
         },
         {
-          "url": "https://rascani.md/informatii-publice",
-          "status": 404,
-          "foundOn": "https://rascani.md/"
-        },
-        {
           "url": "https://rascani.md/proiecte-realizate",
-          "status": 404,
-          "foundOn": "https://rascani.md/"
-        },
-        {
-          "url": "https://rascani.md/sectorul-riscani",
-          "status": 404,
-          "foundOn": "https://rascani.md/"
-        },
-        {
-          "url": "https://rascani.md/servicii-prestate",
           "status": 404,
           "foundOn": "https://rascani.md/"
         },
@@ -647,12 +628,22 @@
           "foundOn": "https://rascani.md/"
         },
         {
-          "url": "https://rascani.md/administratia-preturii/organigrama",
+          "url": "https://rascani.md/servicii-prestate",
+          "status": 404,
+          "foundOn": "https://rascani.md/"
+        },
+        {
+          "url": "https://rascani.md/sectorul-riscani",
           "status": 404,
           "foundOn": "https://rascani.md/"
         },
         {
           "url": "https://rascani.md/organizarea-concursului-pentru-ocuparea-functiei-publice-vacante-de-specialista-principala-sectia-arhitectura-si-urbanism",
+          "status": 404,
+          "foundOn": "https://rascani.md/"
+        },
+        {
+          "url": "https://rascani.md/administratia-preturii/organigrama",
           "status": 404,
           "foundOn": "https://rascani.md/"
         },
@@ -682,11 +673,6 @@
           "foundOn": "https://rascani.md/"
         },
         {
-          "url": "https://rascani.md/sectia-asistenta-juridica-65",
-          "status": 404,
-          "foundOn": "https://rascani.md/"
-        },
-        {
           "url": "https://rascani.md/sectia-agenti-constatatori",
           "status": 404,
           "foundOn": "https://rascani.md/"
@@ -697,17 +683,7 @@
           "foundOn": "https://rascani.md/"
         },
         {
-          "url": "https://rascani.md/informatii-publice/integritate-si-anticoruptie",
-          "status": 404,
-          "foundOn": "https://rascani.md/"
-        },
-        {
-          "url": "https://rascani.md/serviciul-resure-umane",
-          "status": 404,
-          "foundOn": "https://rascani.md/"
-        },
-        {
-          "url": "https://rascani.md/pretorul-sectorului-riscani",
+          "url": "https://rascani.md/sectia-asistenta-juridica-65",
           "status": 404,
           "foundOn": "https://rascani.md/"
         },
@@ -717,38 +693,53 @@
           "foundOn": "https://rascani.md/"
         },
         {
-          "url": "https://rascani.md/informatii-publice/declaratii-de-raspundere-manageriala",
+          "url": "https://rascani.md/serviciul-resure-umane",
           "status": 404,
           "foundOn": "https://rascani.md/"
         },
         {
-          "url": "https://rascani.md/informatii-publice/sedinte-de-analiza-si-sinteza",
+          "url": "https://rascani.md/informatii-publice/integritate-si-anticoruptie",
+          "status": 404,
+          "foundOn": "https://rascani.md/"
+        },
+        {
+          "url": "https://rascani.md/pretorul-sectorului-riscani",
+          "status": 404,
+          "foundOn": "https://rascani.md/"
+        },
+        {
+          "url": "https://rascani.md/informatii-publice/consultari-publice",
+          "status": 404,
+          "foundOn": "https://rascani.md/"
+        },
+        {
+          "url": "https://rascani.md/informatii-publice/declaratii-de-raspundere-manageriala",
           "status": 404,
           "foundOn": "https://rascani.md/"
         }
       ],
       "wp": false,
       "status": 200,
-      "ms": 2244,
-      "latestContentAt": "2026-09-02T16:16:57.000Z"
+      "ms": 1145,
+      "latestContentAt": "2026-10-18T14:15:01.000Z"
     },
     {
       "sourceId": "pretura-buiucani",
-      "checkedAt": "2026-10-18T05:18:59.014Z",
+      "checkedAt": "2026-10-19T05:32:00.634Z",
       "ok": true,
       "tls": "ok",
-      "docCount": 114,
+      "docCount": 115,
       "quarantined": 0,
       "brokenLinks": [],
       "wp": true,
       "status": 200,
-      "ms": 1085,
+      "ms": 803,
       "contactUrl": "https://preturabuiucani.md/contacte",
       "latestContentAt": "2026-10-15T13:50:53.000Z"
     },
     {
       "sourceId": "comert",
-      "checkedAt": "2026-10-18T05:19:04.200Z",
+      "checkedAt": "2026-10-19T05:32:04.152Z",
       "ok": true,
       "tls": "ok",
       "docCount": 32,
@@ -756,27 +747,27 @@
       "brokenLinks": [],
       "wp": false,
       "status": 200,
-      "ms": 1911,
+      "ms": 2320,
       "contactUrl": "https://comert.chisinau.md/contacteaza-directia",
       "latestContentAt": "2026-10-16T06:26:49.000Z"
     },
     {
       "sourceId": "visit",
-      "checkedAt": "2026-10-18T05:19:09.961Z",
+      "checkedAt": "2026-10-19T05:32:06.763Z",
       "ok": true,
       "tls": "ok",
-      "docCount": 39,
+      "docCount": 40,
       "quarantined": 0,
       "brokenLinks": [],
       "wp": true,
       "status": 200,
-      "ms": 1611,
+      "ms": 1657,
       "contactUrl": "https://visit.chisinau.md/faq",
       "latestContentAt": "2026-10-16T12:36:48.000Z"
     },
     {
       "sourceId": "invest",
-      "checkedAt": "2026-10-18T05:19:10.982Z",
+      "checkedAt": "2026-10-19T05:32:09.020Z",
       "ok": true,
       "tls": "ok",
       "docCount": 78,
@@ -784,13 +775,13 @@
       "brokenLinks": [],
       "wp": true,
       "status": 200,
-      "ms": 1259,
+      "ms": 2042,
       "contactUrl": "https://invest.chisinau.md/contacte",
       "latestContentAt": "2026-10-13T12:15:06.000Z"
     },
     {
       "sourceId": "startup",
-      "checkedAt": "2026-10-18T05:19:12.761Z",
+      "checkedAt": "2026-10-19T05:32:10.586Z",
       "ok": true,
       "tls": "ok",
       "docCount": 1,
@@ -798,12 +789,12 @@
       "brokenLinks": [],
       "wp": false,
       "status": 200,
-      "ms": 1051,
+      "ms": 510,
       "contactUrl": "https://proiecte.chisinau.md/ro/contact"
     },
     {
       "sourceId": "etineret",
-      "checkedAt": "2026-10-18T05:19:14.324Z",
+      "checkedAt": "2026-10-19T05:32:11.895Z",
       "ok": true,
       "tls": "ok",
       "docCount": 74,
@@ -817,13 +808,13 @@
       ],
       "wp": true,
       "status": 200,
-      "ms": 1129,
+      "ms": 1301,
       "contactUrl": "https://e-tineret.md/contacte",
       "latestContentAt": "2026-10-15T15:39:14.000Z"
     },
     {
       "sourceId": "infocom",
-      "checkedAt": "2026-10-18T05:19:33.721Z",
+      "checkedAt": "2026-10-19T05:32:27.043Z",
       "ok": true,
       "tls": "none",
       "docCount": 21,
@@ -831,13 +822,13 @@
       "brokenLinks": [],
       "wp": false,
       "status": 200,
-      "ms": 1522,
+      "ms": 1163,
       "contactUrl": "http://www.infocom.md/pagina/contact.html",
       "latestContentAt": "2024-04-17"
     },
     {
       "sourceId": "liftservice",
-      "checkedAt": "2026-10-18T05:19:41.900Z",
+      "checkedAt": "2026-10-19T05:32:32.262Z",
       "ok": true,
       "tls": "ok",
       "docCount": 30,
@@ -849,12 +840,12 @@
           "foundOn": "https://liftservice.md/"
         },
         {
-          "url": "https://liftservice.md/activitatea/galerie-foto",
+          "url": "https://liftservice.md/administratia-directiei",
           "status": 404,
           "foundOn": "https://liftservice.md/"
         },
         {
-          "url": "https://liftservice.md/administratia-directiei",
+          "url": "https://liftservice.md/activitatea/galerie-foto",
           "status": 404,
           "foundOn": "https://liftservice.md/"
         },
@@ -869,12 +860,12 @@
           "foundOn": "https://liftservice.md/"
         },
         {
-          "url": "https://liftservice.md/Lucr%C4%83ri-curente-64",
+          "url": "https://liftservice.md/activitatea/presa",
           "status": 404,
           "foundOn": "https://liftservice.md/"
         },
         {
-          "url": "https://liftservice.md/activitatea/presa",
+          "url": "https://liftservice.md/Lucr%C4%83ri-curente-64",
           "status": 404,
           "foundOn": "https://liftservice.md/"
         },
@@ -889,6 +880,11 @@
           "foundOn": "https://liftservice.md/"
         },
         {
+          "url": "https://liftservice.md/documente-strategice",
+          "status": 404,
+          "foundOn": "https://liftservice.md/"
+        },
+        {
           "url": "https://liftservice.md/titlul-de-contribuabil-cu-grad-inalt-de-credibilitate",
           "status": 404,
           "foundOn": "https://liftservice.md/"
@@ -899,12 +895,12 @@
           "foundOn": "https://liftservice.md/"
         },
         {
-          "url": "https://liftservice.md/documente-strategice",
+          "url": "https://liftservice.md/la-multi-ani-chisinau",
           "status": 404,
           "foundOn": "https://liftservice.md/"
         },
         {
-          "url": "https://liftservice.md/la-multi-ani-chisinau",
+          "url": "https://liftservice.md/declaratie-managerala",
           "status": 404,
           "foundOn": "https://liftservice.md/"
         },
@@ -919,17 +915,12 @@
           "foundOn": "https://liftservice.md/"
         },
         {
-          "url": "https://liftservice.md/declaratie-managerala",
-          "status": 404,
-          "foundOn": "https://liftservice.md/"
-        },
-        {
           "url": "https://liftservice.md/plan-de-actiuni-privind-masurile-de-economisire-a-resurselor-energetice",
           "status": 404,
           "foundOn": "https://liftservice.md/"
         },
         {
-          "url": "https://liftservice.md/Raport-Chieltuieli-iulie-2026",
+          "url": "https://liftservice.md/plan-de-afaceri-2023",
           "status": 404,
           "foundOn": "https://liftservice.md/"
         },
@@ -939,7 +930,7 @@
           "foundOn": "https://liftservice.md/"
         },
         {
-          "url": "https://liftservice.md/plan-de-afaceri-2023",
+          "url": "https://liftservice.md/Raport-Chieltuieli-iulie-2026",
           "status": 404,
           "foundOn": "https://liftservice.md/"
         },
@@ -954,12 +945,12 @@
           "foundOn": "https://liftservice.md/"
         },
         {
-          "url": "https://liftservice.md/posturi-vacante",
+          "url": "https://liftservice.md/legea-nr-2462017",
           "status": 404,
           "foundOn": "https://liftservice.md/"
         },
         {
-          "url": "https://liftservice.md/legea-nr-2462017",
+          "url": "https://liftservice.md/posturi-vacante",
           "status": 404,
           "foundOn": "https://liftservice.md/"
         },
@@ -976,7 +967,7 @@
       ],
       "wp": false,
       "status": 200,
-      "ms": 5539,
+      "ms": 1208,
       "contactUrl": "https://liftservice.md/CONTACTEro",
       "latestContentAt": "2026-10-06T14:02:21.000Z"
     }
